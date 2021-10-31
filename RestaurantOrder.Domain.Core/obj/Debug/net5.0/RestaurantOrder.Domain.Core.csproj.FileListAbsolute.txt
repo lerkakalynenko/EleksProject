@@ -1,0 +1,15 @@
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\bin\Debug\net5.0\RestaurantOrder.Domain.Core.deps.json
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\bin\Debug\net5.0\RestaurantOrder.Domain.Core.runtimeconfig.json
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\bin\Debug\net5.0\RestaurantOrder.Domain.Core.runtimeconfig.dev.json
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\bin\Debug\net5.0\RestaurantOrder.Domain.Core.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\bin\Debug\net5.0\ref\RestaurantOrder.Domain.Core.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\bin\Debug\net5.0\RestaurantOrder.Domain.Core.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\RestaurantOrder.Domain.Core.csproj.AssemblyReference.cache
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\RestaurantOrder.Domain.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\RestaurantOrder.Domain.Core.AssemblyInfoInputs.cache
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\RestaurantOrder.Domain.Core.AssemblyInfo.cs
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\RestaurantOrder.Domain.Core.csproj.CoreCompileInputs.cache
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\RestaurantOrder.Domain.Core.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\ref\RestaurantOrder.Domain.Core.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\RestaurantOrder.Domain.Core.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Domain.Core\obj\Debug\net5.0\RestaurantOrder.Domain.Core.genruntimeconfig.cache

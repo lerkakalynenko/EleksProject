@@ -1,0 +1,22 @@
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantOrder.Domain.Core.Entities;
+
+namespace RestaurantOrder.Domain.Core
+{
+    public class ApplicationContext : DbContext
+    {
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Dish> Dishes { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<NeededProduct> NeededProducts { get; set; }
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+            : base(options)
+        {
+            Database.EnsureCreated();
+
+        }
+
+        
+    }
+    
+}

@@ -1,0 +1,9 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\RestaurantOrder.Domain.Core",
+    "\\RestaurantOrder.Services.Interfaces"
+  ],
+  "SelectedNode": "\\RestaurantOrder.Services.Interfaces\\IOrderService.cs",
+  "PreviewInSolutionExplorer": false
+}

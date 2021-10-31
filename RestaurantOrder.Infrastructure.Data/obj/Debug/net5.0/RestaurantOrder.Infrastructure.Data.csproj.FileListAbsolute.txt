@@ -1,0 +1,16 @@
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\bin\Debug\net5.0\RestaurantOrder.Infrastructure.Data.deps.json
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\bin\Debug\net5.0\RestaurantOrder.Infrastructure.Data.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\bin\Debug\net5.0\ref\RestaurantOrder.Infrastructure.Data.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\bin\Debug\net5.0\RestaurantOrder.Infrastructure.Data.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\bin\Debug\net5.0\RestaurantOrder.Domain.Core.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\bin\Debug\net5.0\RestaurantOrder.Domain.Interfaces.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\bin\Debug\net5.0\RestaurantOrder.Domain.Interfaces.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\bin\Debug\net5.0\RestaurantOrder.Domain.Core.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\obj\Debug\net5.0\RestaurantOrder.Infrastructure.Data.csproj.AssemblyReference.cache
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\obj\Debug\net5.0\RestaurantOrder.Infrastructure.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\obj\Debug\net5.0\RestaurantOrder.Infrastructure.Data.AssemblyInfoInputs.cache
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\obj\Debug\net5.0\RestaurantOrder.Infrastructure.Data.AssemblyInfo.cs
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\obj\Debug\net5.0\RestaurantOrder.Infrastructure.Data.csproj.CoreCompileInputs.cache
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\obj\Debug\net5.0\RestaurantOrder.Infrastructure.Data.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\obj\Debug\net5.0\ref\RestaurantOrder.Infrastructure.Data.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Data\obj\Debug\net5.0\RestaurantOrder.Infrastructure.Data.pdb
