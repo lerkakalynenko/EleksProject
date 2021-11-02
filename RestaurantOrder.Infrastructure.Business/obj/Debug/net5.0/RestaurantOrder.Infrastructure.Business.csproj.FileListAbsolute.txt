@@ -18,3 +18,4 @@ C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Busin
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Business\bin\Debug\net5.0\RestaurantOrder.Domain.Core.pdb
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Business\bin\Debug\net5.0\RestaurantOrder.Domain.Interfaces.pdb
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Business\bin\Debug\net5.0\RestaurantOrder.Infrastructure.Data.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Infrastructure.Business\obj\Debug\net5.0\RestaurantOrder.Infrastructure.Business.csproj.CopyComplete
