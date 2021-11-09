@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrder", "RestaurantOrder\RestaurantOrder.csproj", "{4C5293E2-556B-407D-96C6-423BC618ADE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrder", "RestaurantOrder\RestaurantOrder.csproj", "{4C5293E2-556B-407D-96C6-423BC618ADE0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{840425CF-B642-44A3-B99C-455B458BB8FF}"
 EndProject
@@ -11,15 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C6DD3E48-D8B0-43F8-8CCB-7C7CE382308B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrder.Domain.Core", "RestaurantOrder.Domain.Core\RestaurantOrder.Domain.Core.csproj", "{CF8CC822-B3F6-4240-80FE-F2DC6576D770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrder.Domain.Core", "RestaurantOrder.Domain.Core\RestaurantOrder.Domain.Core.csproj", "{CF8CC822-B3F6-4240-80FE-F2DC6576D770}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrder.Domain.Interfaces", "RestaurantOrder.Domain.Interfaces\RestaurantOrder.Domain.Interfaces.csproj", "{4C7F24A6-E949-4DC5-8EE6-3CC5F80163A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrder.Domain.Interfaces", "RestaurantOrder.Domain.Interfaces\RestaurantOrder.Domain.Interfaces.csproj", "{4C7F24A6-E949-4DC5-8EE6-3CC5F80163A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrder.Infrastructure.Business", "RestaurantOrder.Infrastructure.Business\RestaurantOrder.Infrastructure.Business.csproj", "{83CEBC22-97CB-4B75-909A-71F399355BB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrder.Infrastructure.Business", "RestaurantOrder.Infrastructure.Business\RestaurantOrder.Infrastructure.Business.csproj", "{83CEBC22-97CB-4B75-909A-71F399355BB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrder.Infrastructure.Data", "RestaurantOrder.Infrastructure.Data\RestaurantOrder.Infrastructure.Data.csproj", "{976FF0ED-DD33-4C9A-B051-17F07318D6A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrder.Infrastructure.Data", "RestaurantOrder.Infrastructure.Data\RestaurantOrder.Infrastructure.Data.csproj", "{976FF0ED-DD33-4C9A-B051-17F07318D6A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrder.Services.Interfaces", "RestaurantOrder.Services.Interfaces\RestaurantOrder.Services.Interfaces.csproj", "{E20E281C-A6E6-4D08-B441-1DD7E02ED888}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrder.Services.Interfaces", "RestaurantOrder.Services.Interfaces\RestaurantOrder.Services.Interfaces.csproj", "{E20E281C-A6E6-4D08-B441-1DD7E02ED888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrder.Services.Contracts", "RestaurantOrder.Services.Contracts\RestaurantOrder.Services.Contracts.csproj", "{F5E507B1-C894-4E75-850C-64ECF3D2C0B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{E20E281C-A6E6-4D08-B441-1DD7E02ED888}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E20E281C-A6E6-4D08-B441-1DD7E02ED888}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E20E281C-A6E6-4D08-B441-1DD7E02ED888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5E507B1-C894-4E75-850C-64ECF3D2C0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5E507B1-C894-4E75-850C-64ECF3D2C0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5E507B1-C894-4E75-850C-64ECF3D2C0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5E507B1-C894-4E75-850C-64ECF3D2C0B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{83CEBC22-97CB-4B75-909A-71F399355BB8} = {B44D477A-9CAC-4B5D-84AC-B96796FD851B}
 		{976FF0ED-DD33-4C9A-B051-17F07318D6A5} = {B44D477A-9CAC-4B5D-84AC-B96796FD851B}
 		{E20E281C-A6E6-4D08-B441-1DD7E02ED888} = {C6DD3E48-D8B0-43F8-8CCB-7C7CE382308B}
+		{F5E507B1-C894-4E75-850C-64ECF3D2C0B3} = {C6DD3E48-D8B0-43F8-8CCB-7C7CE382308B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0BA0C6F-2123-46B6-A8D7-A390E6E12C5C}

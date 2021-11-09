@@ -136,14 +136,14 @@
         }
       }
     },
-    "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Infrastructure.Data\\RestaurantOrder.Infrastructure.Data.csproj": {
+    "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Services.Contracts\\RestaurantOrder.Services.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Infrastructure.Data\\RestaurantOrder.Infrastructure.Data.csproj",
-        "projectName": "RestaurantOrder.Infrastructure.Data",
-        "projectPath": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Infrastructure.Data\\RestaurantOrder.Infrastructure.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Services.Contracts\\RestaurantOrder.Services.Contracts.csproj",
+        "projectName": "RestaurantOrder.Services.Contracts",
+        "projectPath": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Services.Contracts\\RestaurantOrder.Services.Contracts.csproj",
         "packagesPath": "C:\\Users\\Lera\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Infrastructure.Data\\obj\\",
+        "outputPath": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Services.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lera\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -159,11 +159,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Domain.Interfaces\\RestaurantOrder.Domain.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Domain.Interfaces\\RestaurantOrder.Domain.Interfaces.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -218,8 +214,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Infrastructure.Data\\RestaurantOrder.Infrastructure.Data.csproj": {
-                "projectPath": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Infrastructure.Data\\RestaurantOrder.Infrastructure.Data.csproj"
+              "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Domain.Interfaces\\RestaurantOrder.Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Domain.Interfaces\\RestaurantOrder.Domain.Interfaces.csproj"
+              },
+              "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Services.Contracts\\RestaurantOrder.Services.Contracts.csproj": {
+                "projectPath": "C:\\Users\\Lera\\source\\source\\RestaurantOrder\\RestaurantOrder.Services.Contracts\\RestaurantOrder.Services.Contracts.csproj"
               }
             }
           }

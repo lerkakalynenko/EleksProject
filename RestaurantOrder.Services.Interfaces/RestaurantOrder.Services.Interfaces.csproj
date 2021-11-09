@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RestaurantOrder.Infrastructure.Data\RestaurantOrder.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\RestaurantOrder.Domain.Interfaces\RestaurantOrder.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\RestaurantOrder.Services.Contracts\RestaurantOrder.Services.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

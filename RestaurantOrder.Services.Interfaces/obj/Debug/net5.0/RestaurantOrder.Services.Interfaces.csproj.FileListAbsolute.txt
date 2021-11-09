@@ -12,7 +12,8 @@ C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\obj\Debug\net5.0\RestaurantOrder.Services.Interfaces.csproj.AssemblyReference.cache
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Domain.Core.dll
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Domain.Interfaces.dll
-C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Infrastructure.Data.dll
-C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Infrastructure.Data.pdb
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Domain.Core.pdb
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Domain.Interfaces.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Services.Contracts.dll
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Services.Contracts.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\obj\Debug\net5.0\RestaurantOrder.Services.Interfaces.csproj.CopyComplete

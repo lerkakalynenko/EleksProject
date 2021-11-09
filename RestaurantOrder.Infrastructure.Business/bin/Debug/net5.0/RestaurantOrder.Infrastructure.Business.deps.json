@@ -1068,17 +1068,15 @@
           "RestaurantOrder.Domain.Interfaces.dll": {}
         }
       },
-      "RestaurantOrder.Infrastructure.Data/1.0.0": {
-        "dependencies": {
-          "RestaurantOrder.Domain.Interfaces": "1.0.0"
-        },
+      "RestaurantOrder.Services.Contracts/1.0.0": {
         "runtime": {
-          "RestaurantOrder.Infrastructure.Data.dll": {}
+          "RestaurantOrder.Services.Contracts.dll": {}
         }
       },
       "RestaurantOrder.Services.Interfaces/1.0.0": {
         "dependencies": {
-          "RestaurantOrder.Infrastructure.Data": "1.0.0"
+          "RestaurantOrder.Domain.Interfaces": "1.0.0",
+          "RestaurantOrder.Services.Contracts": "1.0.0"
         },
         "runtime": {
           "RestaurantOrder.Services.Interfaces.dll": {}
@@ -1767,7 +1765,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "RestaurantOrder.Infrastructure.Data/1.0.0": {
+    "RestaurantOrder.Services.Contracts/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

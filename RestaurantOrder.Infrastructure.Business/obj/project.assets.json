@@ -1522,24 +1522,22 @@
           "bin/placeholder/RestaurantOrder.Domain.Interfaces.dll": {}
         }
       },
-      "RestaurantOrder.Infrastructure.Data/1.0.0": {
+      "RestaurantOrder.Services.Contracts/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "RestaurantOrder.Domain.Interfaces": "1.0.0"
-        },
         "compile": {
-          "bin/placeholder/RestaurantOrder.Infrastructure.Data.dll": {}
+          "bin/placeholder/RestaurantOrder.Services.Contracts.dll": {}
         },
         "runtime": {
-          "bin/placeholder/RestaurantOrder.Infrastructure.Data.dll": {}
+          "bin/placeholder/RestaurantOrder.Services.Contracts.dll": {}
         }
       },
       "RestaurantOrder.Services.Interfaces/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "RestaurantOrder.Infrastructure.Data": "1.0.0"
+          "RestaurantOrder.Domain.Interfaces": "1.0.0",
+          "RestaurantOrder.Services.Contracts": "1.0.0"
         },
         "compile": {
           "bin/placeholder/RestaurantOrder.Services.Interfaces.dll": {}
@@ -5784,10 +5782,10 @@
       "path": "../RestaurantOrder.Domain.Interfaces/RestaurantOrder.Domain.Interfaces.csproj",
       "msbuildProject": "../RestaurantOrder.Domain.Interfaces/RestaurantOrder.Domain.Interfaces.csproj"
     },
-    "RestaurantOrder.Infrastructure.Data/1.0.0": {
+    "RestaurantOrder.Services.Contracts/1.0.0": {
       "type": "project",
-      "path": "../RestaurantOrder.Infrastructure.Data/RestaurantOrder.Infrastructure.Data.csproj",
-      "msbuildProject": "../RestaurantOrder.Infrastructure.Data/RestaurantOrder.Infrastructure.Data.csproj"
+      "path": "../RestaurantOrder.Services.Contracts/RestaurantOrder.Services.Contracts.csproj",
+      "msbuildProject": "../RestaurantOrder.Services.Contracts/RestaurantOrder.Services.Contracts.csproj"
     },
     "RestaurantOrder.Services.Interfaces/1.0.0": {
       "type": "project",
