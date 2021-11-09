@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RestaurantOrder.Domain.Core;
+using RestaurantOrder.Infrastructure.Data;
 
-namespace RestaurantOrder.Domain.Core.Migrations
+namespace RestaurantOrder.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211109150910_upbd")]
-    partial class upbd
+    partial class ApplicationContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,7 +62,7 @@ namespace RestaurantOrder.Domain.Core.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("NeededDishes");
+                    b.ToTable("NeededDish");
                 });
 
             modelBuilder.Entity("RestaurantOrder.Domain.Core.Entities.NeededProduct", b =>

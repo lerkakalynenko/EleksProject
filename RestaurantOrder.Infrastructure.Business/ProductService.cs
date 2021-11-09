@@ -10,9 +10,14 @@ using RestaurantOrder.Services.Interfaces;
 namespace RestaurantOrder.Infrastructure.Business
 {
     
-    class ProductService : IProductService
+    public class ProductService : IProductService
     {
         private readonly IProductRepository repository;
+
+        public ProductService(IProductRepository productRepository)
+        {
+            repository = productRepository;
+        }
         public Product CreateProduct(Product product)
         {
             return repository.Create(product);

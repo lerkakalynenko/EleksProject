@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RestaurantOrder.Domain.Core;
+using RestaurantOrder.Infrastructure.Data;
 
-namespace RestaurantOrder.Domain.Core.Migrations
+namespace RestaurantOrder.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211109151714_k")]
-    partial class k
+    [Migration("20211109184723_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,7 +64,7 @@ namespace RestaurantOrder.Domain.Core.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("NeededDishes");
+                    b.ToTable("NeededDish");
                 });
 
             modelBuilder.Entity("RestaurantOrder.Domain.Core.Entities.NeededProduct", b =>

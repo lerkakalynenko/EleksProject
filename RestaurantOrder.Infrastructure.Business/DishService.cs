@@ -13,6 +13,10 @@ namespace RestaurantOrder.Infrastructure.Business
     {
         private readonly IDishRepository repository;
 
+        public DishService(IDishRepository dishRepository)
+        {
+            this.repository = dishRepository;
+        }
 
         public Dish CreateDish(Dish dish)
         {

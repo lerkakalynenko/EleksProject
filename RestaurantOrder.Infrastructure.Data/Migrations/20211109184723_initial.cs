@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RestaurantOrder.Domain.Core.Migrations
+namespace RestaurantOrder.Infrastructure.Data.Migrations
 {
-    public partial class fisrt : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

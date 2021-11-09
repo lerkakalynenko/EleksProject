@@ -5,22 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RestaurantOrder.Domain.Core\RestaurantOrder.Domain.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\" />
+    <ProjectReference Include="..\RestaurantOrder.Infrastructure.Business\RestaurantOrder.Infrastructure.Business.csproj" />
+    <ProjectReference Include="..\RestaurantOrder.Infrastructure.Data\RestaurantOrder.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\RestaurantOrder.Services.Interfaces\RestaurantOrder.Services.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
