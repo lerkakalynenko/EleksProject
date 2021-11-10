@@ -12,6 +12,10 @@ namespace RestaurantOrder.Infrastructure.Business
     public class NeededDishService : INeededDishService
     {
         private readonly INeededDishRepository repository;
+        public NeededDishService(INeededDishRepository neededDishRepository)
+        {
+            this.repository = neededDishRepository;
+        }
 
         public NeededDish Create(NeededDish neededDish)
         {

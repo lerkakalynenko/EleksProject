@@ -10,7 +10,7 @@ using RestaurantOrder.Domain.Interfaces;
 
 namespace RestaurantOrder.Infrastructure.Data
 {
-    class OrderRepository: IOrderRepository
+    public class OrderRepository: IOrderRepository
     {
         private readonly ApplicationContext context;
         private readonly DbSet<Order> dbSet;

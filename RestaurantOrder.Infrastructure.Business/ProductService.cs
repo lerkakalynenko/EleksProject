@@ -16,7 +16,7 @@ namespace RestaurantOrder.Infrastructure.Business
 
         public ProductService(IProductRepository productRepository)
         {
-            repository = productRepository;
+            this.repository = productRepository;
         }
         public Product CreateProduct(Product product)
         {

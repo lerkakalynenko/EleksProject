@@ -11,6 +11,10 @@ namespace RestaurantOrder.Infrastructure.Business
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository repository;
+        public OrderService(IOrderRepository orderRepository)
+        {
+            this.repository = orderRepository;
+        }
 
         public Order CreateOrder(Order order)
         {

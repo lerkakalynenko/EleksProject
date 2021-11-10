@@ -28,8 +28,21 @@ namespace RestaurantOrder
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
             services.AddScoped<IDishRepository, DishRepository>();
             services.AddScoped<IDishService, DishService>();
+
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderService, OrderService>();
+
+            services.AddScoped<INeededDishRepository, NeededDishRepository>();
+            services.AddScoped<INeededDishService, NeededDishService>();
+
+            services.AddScoped<INeededProductRepository, NeededProductRepository>();
+            services.AddScoped<INeededProductService, NeededProductService>();
+
+
+
             services.AddControllersWithViews();
         }
 

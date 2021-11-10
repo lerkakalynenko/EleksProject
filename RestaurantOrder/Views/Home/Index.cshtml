@@ -1,9 +1,11 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Restaurant Order";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Make orders here</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <a asp-controller="Product" asp-action="CreateProduct">Create product</a>
+    <a asp-controller="Product" asp-action="CreateProduct">Create product</a> <br/>
+    <a asp-controller="Dish" asp-action="CreateDish">Create dish</a><br/>
+    <a asp-controller="Order" asp-action="CreateOrder">Create order</a><br/>
 </div>

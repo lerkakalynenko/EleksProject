@@ -32,9 +32,9 @@ namespace RestaurantOrder.Controllers
             return View();
         }
 
-        public ActionResult<Product> Index(int id)
-        {
-            return View(productService.GetProductById(id));
-        }
+        //public ActionResult<Product> Index(int id)
+        //{
+        //    return View(productService.GetProductById(id));
+        //}
     }
 }

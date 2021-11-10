@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-controller="Dish" asp-action="CreateDish">
+    <label>Name of dish</label>
+    <input name="name" type="text" /><br />
+    <label>Short description</label>
+    <input name="description" type="text" /><br />
+    <label>Price of dish</label>
+    <input name ="price" type ="number" step="0.1" /><br/>
+    
+    <button type="submit">Create</button>
+
+
+</form>

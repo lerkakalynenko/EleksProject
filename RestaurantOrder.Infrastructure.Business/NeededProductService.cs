@@ -14,6 +14,11 @@ namespace RestaurantOrder.Infrastructure.Business
     {
         private readonly INeededProductRepository repository;
 
+        public NeededProductService(INeededProductRepository neededProductRepository)
+        {
+            this.repository = neededProductRepository;
+        }
+
         public NeededProduct Create(NeededProduct neededProduct)
         {
             return repository.Create(neededProduct);
