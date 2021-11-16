@@ -32,6 +32,11 @@ namespace RestaurantOrder.Infrastructure.Data
             return dbSet.Find(id);
         }
 
+        public ICollection<Product> GetAll()
+        {
+            return dbSet.ToList();
+        }
+
         //public IEnumerable<Product> GetAll()
         //{
         //    return dbSet.ToList();

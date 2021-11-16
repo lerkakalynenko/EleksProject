@@ -1,0 +1,21 @@
+﻿@model ICollection<RestaurantOrder.Domain.Core.Entities.Product>
+@{
+}
+
+<div>
+    @foreach (var product in Model)
+    {
+        @product.Name
+        <form method="post">
+            <input name="productId" style="display: none" value="@product.Id"/>
+            <input name="quantity" type="number"/>
+            <input type="submit" name="name"/>
+        </form>
+    }
+    <a style="display: block" href="#">Add to dish</a>
+</div>
+<script>
+    void function func() {
+        
+    }
+</script>

@@ -3,36 +3,41 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using RestaurantOrder.Domain.Core.Entities;
+using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
 
 namespace RestaurantOrder.Controllers
 {
     public class DishController : Controller
     {
+        private readonly IMapper _mapper;
         private readonly IDishService dishService;
+       // private readonly INeededProductService neededProductService;
 
-        public DishController(IDishService dishService)
+        public DishController(IDishService dishService, IMapper mapper)
         {
             this.dishService = dishService;
+            _mapper = mapper;
         }
 
         [HttpPost]
-        public IActionResult CreateDish(string name, string description, decimal price)
+        public IActionResult CreateDish(Dish dish)
         {
-            var dish = new Dish { Name = name, Description = description, Price = price};
-            
             dishService.CreateDish(dish);
-            return RedirectToAction("Index", "Home");
+            var model = _mapper.Map<DishDto>(dish);
+            return RedirectToAction("CreateDish", "Dish");
 
         }
 
         [HttpGet]
         public IActionResult CreateDish()
         {
-
+            
             return View();
         }
+        
 
 
     }

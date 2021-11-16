@@ -11,6 +11,7 @@ namespace RestaurantOrder.Domain.Interfaces
     {
         public Product Create(Product product);
         public Product GetById(int id);
+        public ICollection<Product> GetAll();
         public void Delete(int id);
     }
 }

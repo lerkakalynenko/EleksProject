@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,8 @@ using RestaurantOrder.Domain.Interfaces;
 using RestaurantOrder.Infrastructure.Data;
 using RestaurantOrder.Services.Interfaces;
 using RestaurantOrder.Infrastructure.Business;
+using RestaurantOrder.Mappings;
+using RestaurantOrder.Services.Contracts;
 
 namespace RestaurantOrder
 {
@@ -41,12 +44,17 @@ namespace RestaurantOrder
             services.AddScoped<INeededProductRepository, NeededProductRepository>();
             services.AddScoped<INeededProductService, NeededProductService>();
 
+            // Auto Mapper Configurations
+            var mapperConfig = new MapperConfiguration(mc => { mc.AddProfile(new MappingProfile()); });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
 
             services.AddControllersWithViews();
         }
 
-       
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -59,6 +67,7 @@ namespace RestaurantOrder
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -74,4 +83,5 @@ namespace RestaurantOrder
             });
         }
     }
+
 }

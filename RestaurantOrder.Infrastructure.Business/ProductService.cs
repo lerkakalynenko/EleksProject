@@ -28,6 +28,11 @@ namespace RestaurantOrder.Infrastructure.Business
             return repository.GetById(id);
         }
 
+        public ICollection<Product> GetAll()
+        {
+            return repository.GetAll();
+        }
+
         public void DeleteProduct(int id)
         {
             repository.Delete(id);
