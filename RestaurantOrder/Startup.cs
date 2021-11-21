@@ -5,13 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RestaurantOrder.Domain.Core;
 using RestaurantOrder.Domain.Interfaces;
 using RestaurantOrder.Infrastructure.Data;
 using RestaurantOrder.Services.Interfaces;
 using RestaurantOrder.Infrastructure.Business;
 using RestaurantOrder.Mappings;
-using RestaurantOrder.Services.Contracts;
 
 namespace RestaurantOrder
 {

@@ -47,5 +47,6 @@ namespace RestaurantOrder.Infrastructure.Data
             dbSet.Remove(entity);
             context.SaveChanges();
         }
+
     }
 }

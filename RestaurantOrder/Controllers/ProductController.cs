@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using RestaurantOrder.Domain.Core.Entities;
-using RestaurantOrder.Infrastructure.Business;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
 
@@ -15,11 +11,14 @@ namespace RestaurantOrder.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IProductService _productService;
+        private readonly INeededProductService _neededProductService;
 
-        public ProductController(IMapper mapper, IProductService productService)
+        public ProductController(IMapper mapper, IProductService productService, INeededProductService neededProductService)
         {
             _mapper = mapper;
             _productService = productService;
+            _neededProductService = neededProductService;
+
         }
         
         
@@ -57,5 +56,35 @@ namespace RestaurantOrder.Controllers
         {
             return View(_productService.GetAll());
         }
+        [HttpGet]
+        public IActionResult DeleteProduct()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult<Product> DeleteProduct(int id)
+        {
+            _productService.DeleteProduct(id);
+            return RedirectToAction("DeleteProduct", "Product");
+        }
+
+        //[HttpPost]
+        //public IActionResult GetAll(int productId, int quantity)
+        //{
+
+        //    var neededProduct = new NeededProduct {Product = productId, ProductQuantity = quantity };
+
+        //    List<int> lst = new List<int>();
+
+
+
+
+        //    return RedirectToAction("GetAll", "Product");
+
+        //}
+
+
+
     }
 }

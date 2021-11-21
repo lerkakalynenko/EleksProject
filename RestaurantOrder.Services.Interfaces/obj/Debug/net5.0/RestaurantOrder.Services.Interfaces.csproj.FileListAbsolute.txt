@@ -16,3 +16,4 @@ C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Domain.Interfaces.pdb
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Services.Contracts.dll
 C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\bin\Debug\net5.0\RestaurantOrder.Services.Contracts.pdb
+C:\Users\Lera\source\source\RestaurantOrder\RestaurantOrder.Services.Interfaces\obj\Debug\net5.0\RestaurantOrder.Services.Interfaces.csproj.CopyComplete

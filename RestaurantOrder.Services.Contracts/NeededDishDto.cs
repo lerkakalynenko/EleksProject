@@ -10,7 +10,7 @@ namespace RestaurantOrder.Services.Contracts
     public class NeededDishDto
     {
         public int Id { get; set; }
-        public Dish Dish { get; set; }
+        public DishDto Dish { get; set; }
         public int DishQuantity { get; set; }
     }
 }

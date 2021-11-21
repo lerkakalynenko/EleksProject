@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
 
@@ -23,6 +18,13 @@ namespace RestaurantOrder.Mappings
 
             CreateMap<NeededProduct, NeededProductDto>();
             CreateMap<NeededProductDto, NeededProduct>();
+
+            CreateMap<Order, OrderDto>();
+            CreateMap<OrderDto, Order>();
+
+            CreateMap<NeededDish, NeededDishDto>();
+            CreateMap<NeededDishDto, NeededDish>();
+
         }
     }
 }
