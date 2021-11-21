@@ -37,8 +37,22 @@ namespace RestaurantOrder.Controllers
             
             return View();
         }
-        
+        [HttpGet]
+        public IActionResult DeleteDish()
+        {
 
+            return View();
+        }
+        [HttpPost]
+        public ActionResult<Dish> DeleteDish(int id)
+        {
+           
+
+            dishService.DeleteDish(id); 
+
+            return RedirectToAction("DeleteDish", "Dish");
+
+        }
 
     }
 }

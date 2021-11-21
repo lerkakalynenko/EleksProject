@@ -43,9 +43,12 @@ namespace RestaurantOrder.Infrastructure.Data
         //}
         public void Delete(int id)
         {
-            var entity = GetById(id);
-            dbSet.Remove(entity);
-            context.SaveChanges();
+           
+                var entity = GetById(id);
+                dbSet.Remove(entity);
+                context.SaveChanges();
+
+           
         }
 
     }

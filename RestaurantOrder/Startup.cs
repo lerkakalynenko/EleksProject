@@ -47,7 +47,7 @@ namespace RestaurantOrder
 
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
-
+            
 
             services.AddControllersWithViews();
         }

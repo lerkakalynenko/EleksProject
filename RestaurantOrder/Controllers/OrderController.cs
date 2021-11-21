@@ -43,5 +43,18 @@ namespace RestaurantOrder.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public IActionResult DeleteOrder()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult<Order> DeleteOrder(int id)
+        {
+            orderService.DeleteOrder(id);
+            return RedirectToAction("DeleteOrder", "Order");
+        }
     }
 }

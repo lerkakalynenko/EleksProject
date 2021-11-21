@@ -62,11 +62,13 @@ namespace RestaurantOrder.Controllers
 
             return View();
         }
+
         [HttpPost]
         public ActionResult<Product> DeleteProduct(int id)
         {
             _productService.DeleteProduct(id);
             return RedirectToAction("DeleteProduct", "Product");
+            
         }
 
         //[HttpPost]
@@ -77,12 +79,10 @@ namespace RestaurantOrder.Controllers
 
         //    List<int> lst = new List<int>();
 
-
-
-
         //    return RedirectToAction("GetAll", "Product");
 
         //}
+        
 
 
 
