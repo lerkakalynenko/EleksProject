@@ -13,5 +13,11 @@ namespace RestaurantOrder.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public IActionResult GetOrder()
+        {
+            return View();
+        }
     }
 }

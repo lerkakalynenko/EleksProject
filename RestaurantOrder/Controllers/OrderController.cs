@@ -36,6 +36,12 @@ namespace RestaurantOrder.Controllers
         }
 
         [HttpGet]
+        public IActionResult Menu()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult CreateOrder()
         {
 

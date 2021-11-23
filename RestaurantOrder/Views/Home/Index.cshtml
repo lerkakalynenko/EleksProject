@@ -3,8 +3,15 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Make orders here</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <style>
+        p {
+            border: 2px solid blueviolet;
+            padding: 10px 0;
+            background-color: aquamarine;
+        }
+    </style>
+    <p class="display-4">Make orders here</p>
+
     <a asp-controller="Admin" asp-action="Index">Go to admin page</a><br />
-    <a asp-controller="Order" asp-action="CreateOrder">Create order</a><br />
+    <a asp-controller="Order" asp-action="Menu">Show menu and make an order</a><br />
 </div>
