@@ -14,5 +14,6 @@ namespace RestaurantOrder.Services.Interfaces
         public Dish GetDishById(int id);
         public IEnumerable<Dish> GetAll();
         public void DeleteDish(int id);
+        public void Update(Dish dish);
     }
 }

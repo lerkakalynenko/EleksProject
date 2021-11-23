@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Data.SqlClient.DataClassification;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
@@ -9,15 +11,19 @@ namespace RestaurantOrder.Controllers
 {
     public class ProductController : Controller
     {
+        
         private readonly IMapper _mapper;
         private readonly IProductService _productService;
         private readonly INeededProductService _neededProductService;
+        private readonly IDishService _dishService;
 
-        public ProductController(IMapper mapper, IProductService productService, INeededProductService neededProductService)
+        public ProductController(IMapper mapper, IProductService productService, INeededProductService neededProductService, IDishService dishService)
         {
             _mapper = mapper;
             _productService = productService;
             _neededProductService = neededProductService;
+            _dishService = dishService;
+            _productService = _productService ?? throw new ArgumentNullException(nameof(_productService));
 
         }
         
@@ -52,8 +58,10 @@ namespace RestaurantOrder.Controllers
             return View(_productService.GetProductById(id));
         }
         [HttpGet]
-        public ActionResult<Product> GetAll()
+        public ActionResult<Product> GetAll(int id)
         {
+            ViewBag.DishId = id;
+            
             return View(_productService.GetAll());
         }
         [HttpGet]
@@ -71,6 +79,22 @@ namespace RestaurantOrder.Controllers
             
         }
 
+        public IActionResult AddProductToList(int productId, int dishId, int quantity)
+        {
+            var product = _productService.GetProductById(productId);
+            var dish = _dishService.GetDishById(dishId);
+
+            var neededProduct = new NeededProduct
+            {
+                Product = product,
+                ProductQuantity = quantity,
+            };
+            dish.NeededProducts.Add(neededProduct);
+            _neededProductService.Create(neededProduct);
+
+            _dishService.Update(dish);
+            return RedirectToAction("GetAll", new {id=dishId});
+        }
         //[HttpPost]
         //public IActionResult GetAll(int productId, int quantity)
         //{

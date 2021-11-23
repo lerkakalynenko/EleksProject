@@ -1,0 +1,30 @@
+﻿@using RestaurantOrder.Domain.Core.Entities
+@using System.Linq
+@using RestaurantOrder.Infrastructure.Business
+@model IEnumerable<RestaurantOrder.Domain.Core.Entities.Dish>
+@{
+}
+
+<div>
+
+    @foreach (var dish in Model)
+    {
+        @dish.Name
+        <form method="post" asp-controller="Dish" asp-action="AddDishToList">
+            <input name="dishId" type="number" hidden value="@dish.Id"/>
+
+            <input name="orderId" type="number" value="@ViewBag.OrderId" hidden/>
+
+            <input name="quantity" type="number"/>
+            <input type="submit" value="Add to order"/>
+        </form>
+    }
+
+    <a style="display: block" asp-controller="Admin" asp-action="Index">Create order</a>
+</div>
+<script>
+    void function func() {
+
+
+    }
+</script>

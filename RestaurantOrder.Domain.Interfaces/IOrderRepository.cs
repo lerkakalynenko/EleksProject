@@ -13,5 +13,6 @@ namespace RestaurantOrder.Domain.Interfaces
         public Order Create(Order order);
         public Order GetById(int id);
         public void Delete(int id);
+        public void Update(Order order);
     }
 }

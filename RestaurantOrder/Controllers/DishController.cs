@@ -13,21 +13,23 @@ namespace RestaurantOrder.Controllers
     public class DishController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IDishService dishService;
-       // private readonly INeededProductService neededProductService;
-
-        public DishController(IDishService dishService, IMapper mapper)
+        private readonly IDishService _dishService;
+        private readonly INeededDishService _neededDishService;
+       private readonly IOrderService _orderService;
+        public DishController(IDishService dishService, IMapper mapper, IOrderService orderService, INeededDishService neededDishService)
         {
-            this.dishService = dishService;
+            _dishService = dishService;
             _mapper = mapper;
+            _orderService = orderService;
+            _neededDishService = neededDishService;
         }
 
         [HttpPost]
         public IActionResult CreateDish(Dish dish)
         {
-            dishService.CreateDish(dish);
+            var createdDish = _dishService.CreateDish(dish);
             var model = _mapper.Map<DishDto>(dish);
-            return RedirectToAction("CreateDish", "Dish");
+            return RedirectToAction("GetAll", "Product", new{id = createdDish.Id});
 
         }
 
@@ -48,10 +50,38 @@ namespace RestaurantOrder.Controllers
         {
            
 
-            dishService.DeleteDish(id); 
+            _dishService.DeleteDish(id); 
 
             return RedirectToAction("DeleteDish", "Dish");
 
+        }
+
+        [HttpGet]
+        public ActionResult<Dish> GetAll(int id)
+        {
+            ViewBag.OrderId = id;
+
+
+            return View(_dishService.GetAll());
+        }
+
+        public IActionResult AddDishToList(int dishId, int orderId, int quantity)
+        {
+            var order = _orderService.GetOrderById(orderId);
+            var dish = _dishService.GetDishById(dishId);
+
+            var neededDish = new NeededDish()
+            {
+                Dish = dish,
+                DishQuantity = quantity,
+            };
+            
+            order.NeededDishes.Add(neededDish);
+            _neededDishService.Create(neededDish);
+           
+
+            _orderService.Update(order);
+            return RedirectToAction("GetAll", new { id = orderId });
         }
 
     }

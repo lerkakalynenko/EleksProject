@@ -13,7 +13,7 @@ namespace RestaurantOrder.Services.Interfaces
         public Order CreateOrder(Order order);
         public Order GetOrderById(int id);
         public void DeleteOrder(int id);
-
+        public void Update(Order order);
 
     }
 }

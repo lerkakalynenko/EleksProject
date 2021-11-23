@@ -42,6 +42,12 @@ namespace RestaurantOrder.Infrastructure.Data
             dbSet.Remove(entity);
             context.SaveChanges();
         }
+
+        public void Update(Dish dish)
+        {
+            dbSet.Update(dish);
+            context.SaveChanges();
+        }
     }
     
     

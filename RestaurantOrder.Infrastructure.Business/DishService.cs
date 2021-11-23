@@ -37,5 +37,10 @@ namespace RestaurantOrder.Infrastructure.Business
         {
             repository.Delete(id);
         }
+
+        public void Update(Dish dish)
+        {
+            repository.Update(dish);
+        }
     }
 }

@@ -24,17 +24,15 @@ namespace RestaurantOrder.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOrder(int tablenumber, string notes)
+        public IActionResult CreateOrder(int tableNumber, string notes)
         {
-            var order = new Order { TableNumber = tablenumber, Notes = notes};
-            orderService.CreateOrder(order); 
+            var order = new Order { TableNumber = tableNumber, Notes = notes};
+            var createdOrder = orderService.CreateOrder(order); 
 
             var model = _mapper.Map<OrderDto>(order);
-
-            return RedirectToAction("Index", "Home");
             
-           
-          
+
+            return RedirectToAction("GetAll", "Dish", new{id= createdOrder.OrderId});
         }
 
         [HttpGet]
@@ -43,6 +41,7 @@ namespace RestaurantOrder.Controllers
 
             return View();
         }
+      
 
         [HttpGet]
         public IActionResult DeleteOrder()

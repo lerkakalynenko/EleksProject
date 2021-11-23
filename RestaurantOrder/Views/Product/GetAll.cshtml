@@ -5,15 +5,16 @@
 <div>
     @foreach (var product in Model)
     {
-        @product.Name
-        <form method="post">
-            <input name="productId" style="display: none" value="@product.Id"/>
+        @product.Name        
+        <form method="post" asp-controller="Product" asp-action="AddProductToList">
+            <input name="productId" type="number" hidden value="@product.Id"/>
+            <input name="dishId" type="number" value="@ViewBag.DishId" hidden/>
 
             <input name="quantity" type="number"/>
-            <input type="submit" name="name"/>
+            <input type="submit" value="Add to dish" />
         </form>
     }
-    <a style="display: block" href="#">Add to dish</a>
+    <a style="display: block" asp-controller="Admin" asp-action="Index">Create dish from these products</a>
 </div>
 <script>
     void function func() {

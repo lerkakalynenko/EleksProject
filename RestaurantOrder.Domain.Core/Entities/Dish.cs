@@ -10,7 +10,10 @@ namespace RestaurantOrder.Domain.Core.Entities
         public decimal Price { get; set; }
         public ICollection<NeededProduct> NeededProducts { get; set; }
 
-
+        public Dish()
+        {
+            NeededProducts = new List<NeededProduct>();
+        }
 
     }
 }

@@ -9,5 +9,9 @@ namespace RestaurantOrder.Domain.Core.Entities
         public string Notes { get; set; }
         public ICollection<NeededDish> NeededDishes { get; set; }
 
+        public Order()
+        {
+            NeededDishes = new List<NeededDish>();
+        }
     }
 }
