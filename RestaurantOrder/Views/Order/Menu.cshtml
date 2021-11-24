@@ -1,16 +1,103 @@
-﻿@{
-    ViewData["Title"] = "Restaurant Order";
-}
+﻿@model IEnumerable<RestaurantOrder.Domain.Core.Entities.Dish>
 
-<div class="text-center">
-    <style>
-        p {
-            border: 2px solid blueviolet;
-            padding: 20px;
-            background-color: aquamarine;
+<style>
+    * {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 35px;
+        text-align: center;
+        color: #2e2833;
+        margin-bottom: 15px;
+    }
+
+    .container {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .dish {
+        padding: 10px;
+        margin-bottom: 15px;
+        max-width: 340px;
+        outline: 1px solid #ccc;
+        border: 1px solid #ccc;
+    }
+
+    .name {
+        font-size: 22px;
+        text-align: center;
+        color: #4a3057;
+    }
+
+    body {
+        padding: 15px;
+    }
+
+    span {
+        color: #2eba22;
+    }
+
+    p {
+        margin-bottom: 5px;
+        font-size: 18px;
+        color: #260e3b;
+    }
+
+    .input {
+        border-color: #454147;
+    }
+
+    .add {
+        background: #2e2833;
+        color: #eee;
+        cursor: pointer;
+    }
+
+        .add:hover {
+            background: #252029;
+            color: #fff;
         }
-    </style>
-    <p class="display-4"; style="color: black">Menu</p>
-    
-    <a asp-controller="Order" asp-action="CreateOrder">Make an order</a><br/>
+
+    .make-order {
+        font-size: 18px;
+        padding: 2px;
+        color: #43384d;
+        display: block;
+        text-decoration: none;
+        font-weight: 600;
+        width: 120px;
+        text-align: center;
+        margin: 0 auto;
+        border: 2px solid #2e2b30;
+        background: #ededed;
+        border-radius: 10px;
+        transition: 0.3s ease;
+    }
+
+        .make-order:hover {
+            background: #404040;
+            color: #fff;
+        }
+
+    .display-none {
+        display: none;
+    }
+</style>
+<h1>Menu</h1>
+<div class="container">
+    <div class="dish">
+        @foreach (var dish in Model)
+        {
+            <h3 class="name">@dish.Name</h3>
+            <p class="name">Price: <span>@dish.Price$</span></p>
+            <p class="name">Description: @dish.Description</p>
+            <span>_____________________________________________</span>
+
+                }
+    </div>
+    <a class = "make-order" asp-controller="Order" asp-action="CreateOrder">Make order</a><br />
 </div>
+
+

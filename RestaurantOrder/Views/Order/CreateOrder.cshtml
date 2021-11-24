@@ -1,27 +1,110 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<div class="text-center">
-    <style>
-        p {
-            border: 2px solid blueviolet;
-            padding: 20px;
-            background-color: aquamarine;
+﻿
+<style>
+    * {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 35px;
+        text-align: center;
+        color: #2e2833;
+        margin-bottom: 15px;
+    }
+
+    .container {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .dish {
+        padding: 10px;
+        margin-bottom: 15px;
+        max-width: 340px;
+        outline: 1px solid #ccc;
+        border: 1px solid #ccc;
+    }
+
+    .name {
+        font-size: 22px;
+        text-align: center;
+        color: #4a3057;
+    }
+
+    body {
+        padding: 15px;
+    }
+
+    span {
+        color: #2eba22;
+    }
+
+    p {
+        margin-bottom: 5px;
+        font-size: 18px;
+        color: #260e3b;
+    }
+
+    .input {
+        border-color: #454147;
+    }
+
+    .add {
+        background: #2e2833;
+        color: #eee;
+        cursor: pointer;
+    }
+
+        .add:hover {
+            background: #252029;
+            color: #fff;
         }
-    </style>
-    <p class="display-4" ; style="color: black">Create order</p>
 
+    .make-order {
+        font-size: 18px;
+        padding: 2px;
+        color: #43384d;
+        display: block;
+        text-decoration: none;
+        font-weight: 600;
+        width: 120px;
+        text-align: center;
+        margin: 0 auto;
+        border: 2px solid #2e2b30;
+        background: #ededed;
+        border-radius: 10px;
+        transition: 0.3s ease;
+    }
 
+        .make-order:hover {
+            background: #404040;
+            color: #fff;
+        }
+
+    .display-none {
+        display: none;
+    }
+</style>
+<h1>Create order</h1>
+<div class="container">
+    <div class="dish">
+        
+            <h3 class="name">Create an order</h3>
+            
+            <form method="post" asp-controller="Order" asp-action="CreateOrder">
+                <p class="name">Enter the number of your table: </p>
+                <input class="input" name="tableNumber" type="number" />
+                <p class="name">Enter notes for your order: </p>
+                <input class="input" name="notes" type="text" /><br/>
+                <button type="submit">Continue</button>
+             
+                @*<a class="make-order" asp-controller="Dish" asp-action="GetAll">Continue</a>*@
+            </form>
+        
+    </div>
+  
 </div>
-<form method="post" asp-controller="Order" asp-action="CreateOrder">
-    <label style="background-color: aquamarine">Enter your table number, please</label>
-    <input name="tableNumber" type="number" style="background-color: antiquewhite"/><br />
-    <label style="background-color: aquamarine">Enter notes for your order</label>
-    <input name="notes" type="text" style="background-color: antiquewhite"/><br />
-    
-    <button type="submit">Continue</button>
 
 
-</form>
+
+
+

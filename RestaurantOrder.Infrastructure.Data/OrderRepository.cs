@@ -45,5 +45,10 @@ namespace RestaurantOrder.Infrastructure.Data
             dbSet.Update(order);
             context.SaveChanges();
         }
+
+        public ICollection<Order> GetAll()
+        {
+            return dbSet.ToList();
+        }
     }
 }

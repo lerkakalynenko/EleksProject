@@ -35,5 +35,10 @@ namespace RestaurantOrder.Infrastructure.Business
         {
             repository.Update(order);
         }
+
+        public ICollection<Order> GetAll()
+        {
+            return repository.GetAll();
+        }
     }
 }

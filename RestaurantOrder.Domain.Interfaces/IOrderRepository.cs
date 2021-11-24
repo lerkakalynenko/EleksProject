@@ -14,5 +14,6 @@ namespace RestaurantOrder.Domain.Interfaces
         public Order GetById(int id);
         public void Delete(int id);
         public void Update(Order order);
+        public ICollection<Order> GetAll();
     }
 }

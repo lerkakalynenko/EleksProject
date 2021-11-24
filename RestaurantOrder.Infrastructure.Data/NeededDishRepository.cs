@@ -38,5 +38,10 @@ namespace RestaurantOrder.Infrastructure.Data
             dbSet.Remove(entity);
             context.SaveChanges();
         }
+
+        public ICollection<NeededDish> GetAll()
+        {
+            return dbSet.ToList();
+        }
     }
 }

@@ -31,5 +31,10 @@ namespace RestaurantOrder.Infrastructure.Business
         { 
             repository.Delete(id);
         }
+
+        public ICollection<NeededDish> GetAll()
+        {
+            return repository.GetAll();
+        }
     }
 }

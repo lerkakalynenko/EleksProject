@@ -1,8 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Restaurant Order";
-}
-
-
+﻿
+@*@model IEnumerable<RestaurantOrder.Domain.Core.Entities.Order>*@
+@using System.Reflection.Metadata
+@model ViewModel
 <style>
     * {
         margin: 0;
@@ -20,7 +19,7 @@
         margin: 0 auto;
     }
 
-    .dish {
+    .order {
         padding: 10px;
         margin-bottom: 15px;
         max-width: 340px;
@@ -63,7 +62,7 @@
             color: #fff;
         }
 
-    .make-order {
+    .return-home {
         font-size: 18px;
         padding: 2px;
         color: #43384d;
@@ -81,19 +80,32 @@
 
         .make-order:hover {
             background: #404040;
-            color: #d3d3d3;
+            color: #fff;
         }
 
     .display-none {
         display: none;
     }
 </style>
-<h1>Restaurant order</h1>
+<h1>All orders</h1>
 <div class="container">
+    <div class="order">
+        
+        @foreach (var orders in Model.Orders)
+        {
 
-     <a class="make-order" asp-controller="Admin" asp-action="Index">Go to admin page</a> <br />
-    <a class="make-order" asp-controller="Order" asp-action="Menu">Show menu and make an order</a><br />
+            <p class="name">Table number: @orders.TableNumber</p>
 
+            @foreach (var neededDishes  in Model.NeededDishes)
+            {   
+            {
+                <p class="name">Dishes: @neededDishes.DishQuantity</p>
+            }
+            }
+            <p class="name">Notes: @orders.Notes</p><br/>
+
+        }
+
+    </div>
+    <a class="return-home" asp-controller="Home" asp-action="Index">Return home</a>
 </div>
-
-

@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using RestaurantOrder.Domain.Core.Entities;
+using RestaurantOrder.Models;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
 
@@ -14,13 +11,17 @@ namespace RestaurantOrder.Controllers
     {
         private readonly IOrderService orderService;
         private readonly IMapper _mapper;
+        private readonly IDishService _dishService;
+        private readonly INeededDishService _neededDishService;
 
 
 
-        public OrderController(IOrderService orderService, IMapper mapper)
+        public OrderController(IOrderService orderService, IMapper mapper, IDishService dishService, INeededDishService neededDishService)
         {
             this.orderService = orderService;
             _mapper = mapper;
+            _dishService = dishService;
+            _neededDishService = neededDishService;
         }
 
         [HttpPost]
@@ -35,10 +36,16 @@ namespace RestaurantOrder.Controllers
             return RedirectToAction("GetAll", "Dish", new{id= createdOrder.OrderId});
         }
 
+
+
         [HttpGet]
-        public IActionResult Menu()
+        public ActionResult<Order> GetAll()
         {
-            return View();
+            //ViewBag.OrderId = id;
+            ViewModel viewModel = new ViewModel{Orders = orderService.GetAll(), NeededDishes = _neededDishService.GetAll()
+            
+        };
+        return View(viewModel);
         }
 
         [HttpGet]
@@ -47,7 +54,15 @@ namespace RestaurantOrder.Controllers
 
             return View();
         }
-      
+
+            [HttpGet]
+            public ActionResult<Dish> Menu(int id)
+            {
+                ViewBag.OrderId = id;
+
+                return View(_dishService.GetAll());
+            }
+        
 
         [HttpGet]
         public IActionResult DeleteOrder()
