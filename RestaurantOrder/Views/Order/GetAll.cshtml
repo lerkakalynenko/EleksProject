@@ -91,20 +91,25 @@
 <div class="container">
     <div class="order">
         
-        @foreach (var orders in Model.Orders)
-        {
+                @foreach (var groups in Model.NeededDishes.GroupBy(o => o.OrderId))
 
-            <p class="name">Table number: @orders.TableNumber</p>
+                {
+                  
+                    foreach (var neededDish in groups)
+                    {
+                       
+                        <p class="name">Dish name: @neededDish.Dish.Name</p>
+                        <p class="name">Quantity of dish: @neededDish.DishQuantity</p>
+                        <p class="name">Price: @neededDish.Dish.Price</p>
+                        <span>____________________________________________ </span>
+                        
 
-            @foreach (var neededDishes  in Model.NeededDishes)
-            {   
-            {
-                <p class="name">Dishes: @neededDishes.DishQuantity</p>
-            }
-            }
-            <p class="name">Notes: @orders.Notes</p><br/>
+                    }<h1>++++++++++++</h1>
+                   
 
-        }
+                }
+
+           
 
     </div>
     <a class="return-home" asp-controller="Home" asp-action="Index">Return home</a>

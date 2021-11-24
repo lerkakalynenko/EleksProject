@@ -94,10 +94,10 @@
             <p class="price">Price: <span>@dish.Price$</span></p>
             <p class="description">Description: @dish.Description</p>
             <form method="post" asp-controller="Dish" asp-action="AddDishToList">
-                <input class="display-none" name="dishId" type="number" hidden value="@dish.Id" />
-                <input class="display-none" name="orderId" type="number" value="@ViewBag.OrderId" hidden />
-                <input class="input" name="quantity" type="number" />
-                <input class="add" type="submit" value="Add to order" />
+                <input class="display-none" name="dishId" type="number" hidden value="@dish.Id"/>
+                <input class="display-none" name="orderId" type="number" value="@ViewBag.OrderId" hidden/>
+                <input class="input" name="quantity" type="number"/>
+                <input class="add" type="submit" value="Add to order"/>
             </form>
         }
     </div>
