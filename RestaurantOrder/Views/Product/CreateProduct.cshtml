@@ -1,9 +1,9 @@
 ﻿
 <form method="post" asp-controller="Product" asp-action="CreateProduct">
     <label>Name of product</label>
-    <input name="name" type="text"/><br/>
+    <input name="name" type="text" required maxlength="20"/><br/>
     <label>Quantity of product</label>
-    <input name="quantity" type="number"/><br/>
+    <input name="quantity" type="number" required min="1" max ="1000"/><br/>
 
     <button type="submit">Create</button>
     

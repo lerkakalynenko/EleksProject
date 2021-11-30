@@ -2,8 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using Microsoft.VisualBasic;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
@@ -15,7 +19,7 @@ namespace RestaurantOrder.Controllers
         private readonly IMapper _mapper;
         private readonly IDishService _dishService;
         private readonly INeededDishService _neededDishService;
-       private readonly IOrderService _orderService;
+        private readonly IOrderService _orderService;
         public DishController(IDishService dishService, IMapper mapper, IOrderService orderService, INeededDishService neededDishService)
         {
             _dishService = dishService;
@@ -27,9 +31,14 @@ namespace RestaurantOrder.Controllers
         [HttpPost]
         public IActionResult CreateDish(Dish dish)
         {
+            
+            
+            
             var createdDish = _dishService.CreateDish(dish);
             var model = _mapper.Map<DishDto>(dish);
-            return RedirectToAction("GetAll", "Product", new{id = createdDish.Id});
+
+
+            return RedirectToAction("GetAll", "Product", new {id = createdDish.Id});
 
         }
 
@@ -48,11 +57,19 @@ namespace RestaurantOrder.Controllers
         [HttpPost]
         public ActionResult<Dish> DeleteDish(int id)
         {
-           
+            try
+            {
+                _dishService.DeleteDish(id);
 
-            _dishService.DeleteDish(id); 
+                return RedirectToAction("DeleteDish", "Dish");
 
-            return RedirectToAction("DeleteDish", "Dish");
+            }
+            catch
+            {
+                 return BadRequest("Index that you entered doesn't exist!!!");
+            }
+               
+
 
         }
 
@@ -74,14 +91,29 @@ namespace RestaurantOrder.Controllers
             {
                 Dish = dish,
                 DishQuantity = quantity,
-            };
-            
-            order.NeededDishes.Add(neededDish);
-            _neededDishService.Create(neededDish);
-           
 
-            _orderService.Update(order);
-            return RedirectToAction("GetAll", new { id = orderId });
+            };
+            try
+            {
+                order.NeededDishes.Add(neededDish);
+
+                _neededDishService.Create(neededDish);
+
+
+                _orderService.Update(order);
+                return RedirectToAction("GetAll", new { id = orderId });
+
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("Error");
+            }
+            
+                
+            
+
+
+           
         }
 
     }

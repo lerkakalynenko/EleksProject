@@ -1,5 +1,4 @@
 ﻿
-<style>
     * {
         margin: 0;
     }
@@ -54,10 +53,10 @@
         cursor: pointer;
     }
 
-        .add:hover {
-            background: #252029;
-            color: #fff;
-        }
+    .add:hover {
+        background: #252029;
+        color: #fff;
+    }
 
     .make-order {
         font-size: 18px;
@@ -75,36 +74,11 @@
         transition: 0.3s ease;
     }
 
-        .make-order:hover {
-            background: #404040;
-            color: #fff;
-        }
+    .make-order:hover {
+        background: #404040;
+        color: #fff;
+    }
 
     .display-none {
         display: none;
     }
-</style>
-<h1>Create order</h1>
-<div class="container">
-    <div class="dish">
-        
-            <h3 class="name">Create an order</h3>
-            
-            <form method="post" asp-controller="Order" asp-action="CreateOrder">
-                <p class="name">Enter the number of your table: </p>
-                <input class="input" name="tableNumber" type="number" required min="1" max="30"/>
-                <p class="name">Enter notes for your order: </p>
-                <input class="input" name="notes" type="text" maxlength="100"/><br/>
-                <button type="submit">Continue</button>
-             
-                @*<a class="make-order" asp-controller="Dish" asp-action="GetAll">Continue</a>*@
-            </form>
-        
-    </div>
-  
-</div>
-
-
-
-
-

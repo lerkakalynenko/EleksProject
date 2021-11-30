@@ -1,6 +1,7 @@
 ﻿
 @*@model IEnumerable<RestaurantOrder.Domain.Core.Entities.Order>*@
 @using System.Reflection.Metadata
+@using RestaurantOrder.Domain.Core.Entities
 @model ViewModel
 <style>
     * {
@@ -90,26 +91,31 @@
 <h1>All orders</h1>
 <div class="container">
     <div class="order">
-        
-                @foreach (var groups in Model.NeededDishes.GroupBy(o => o.OrderId))
 
-                {
-                  
-                    foreach (var neededDish in groups)
-                    {
-                       
+        @foreach (var groups in Model.NeededDishes.GroupBy(o => o.OrderId))
+
+        {
+            decimal sum = 0;
+            foreach (var neededDish in groups)
+            {
+
+              
                         <p class="name">Dish name: @neededDish.Dish.Name</p>
                         <p class="name">Quantity of dish: @neededDish.DishQuantity</p>
-                        <p class="name">Price: @neededDish.Dish.Price</p>
+                        <p1 class="name" >Price: @neededDish.Dish.Price</p1>
+                        sum += @neededDish.Dish.Price;
+
                         <span>____________________________________________ </span>
-                        
 
-                    }<h1>++++++++++++</h1>
-                   
+                
+            }
+            <p1 class="name" style ="background-color: #2eba22">Total price: @sum</p1>
+            <h1>++++++++++++</h1>
 
-                }
 
-           
+         }
+
+
 
     </div>
     <a class="return-home" asp-controller="Home" asp-action="Index">Return home</a>

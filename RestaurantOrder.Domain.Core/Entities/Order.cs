@@ -8,7 +8,6 @@ namespace RestaurantOrder.Domain.Core.Entities
         public int TableNumber { get; set; }
         public string Notes { get; set; }
         public ICollection<NeededDish> NeededDishes { get; set; }
-
         public Order()
         {
             NeededDishes = new List<NeededDish>();
