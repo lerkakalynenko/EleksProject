@@ -26,7 +26,7 @@ namespace RestaurantOrder
         {
             var connection = Configuration.GetConnectionString("ConnectionString");
 
-            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ApplicationContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connection));
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
 

@@ -29,14 +29,13 @@ namespace RestaurantOrder.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateDish(Dish dish)
+        public IActionResult CreateDish(DishDto dish)
         {
-            
-            
-            
-            var createdDish = _dishService.CreateDish(dish);
-            var model = _mapper.Map<DishDto>(dish);
-
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var createdDish = _dishService.CreateDish(_mapper.Map<Dish>(dish));
 
             return RedirectToAction("GetAll", "Product", new {id = createdDish.Id});
 
@@ -49,10 +48,10 @@ namespace RestaurantOrder.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult DeleteDish()
+        public ActionResult<Dish> DeleteDish()
         {
 
-            return View();
+            return View(_dishService.GetAll());
         }
         [HttpPost]
         public ActionResult<Dish> DeleteDish(int id)
@@ -60,6 +59,7 @@ namespace RestaurantOrder.Controllers
             try
             {
                 _dishService.DeleteDish(id);
+                
 
                 return RedirectToAction("DeleteDish", "Dish");
 

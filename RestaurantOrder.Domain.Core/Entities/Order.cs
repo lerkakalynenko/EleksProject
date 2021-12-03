@@ -7,7 +7,7 @@ namespace RestaurantOrder.Domain.Core.Entities
         public int OrderId { get; set; }
         public int TableNumber { get; set; }
         public string Notes { get; set; }
-        public ICollection<NeededDish> NeededDishes { get; set; }
+        public virtual ICollection<NeededDish> NeededDishes { get; set; }
         public Order()
         {
             NeededDishes = new List<NeededDish>();

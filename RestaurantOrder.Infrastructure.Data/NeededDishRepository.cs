@@ -41,8 +41,7 @@ namespace RestaurantOrder.Infrastructure.Data
 
         public ICollection<NeededDish> GetAll()
         {
-            return dbSet.Include(d => d.Dish).ToList();
-           // return dbSet.ToList();
+            return dbSet.ToList();
         }
     }
 }

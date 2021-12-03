@@ -13,5 +13,7 @@ namespace RestaurantOrder.Models
         public IEnumerable<Order> Orders { get; set; }
         public IEnumerable<NeededDish> NeededDishes { get; set; }
 
+        public decimal Sum => NeededDishes.Sum(neededDish => neededDish.Dish.Price);
+            
     }
 }

@@ -23,17 +23,20 @@ namespace RestaurantOrder.Controllers
             _productService = productService;
             _neededProductService = neededProductService;
             _dishService = dishService;
-            _productService = _productService ?? throw new ArgumentNullException(nameof(_productService));
+            
 
         }
         
         
         
         [HttpPost]
-        public IActionResult CreateProduct(Product product)
+        public IActionResult CreateProduct(ProductDto product)
         {
-            _productService.CreateProduct(product);
-            var model = _mapper.Map<ProductDto>(product);
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            _productService.CreateProduct(_mapper.Map<Product>(product));
             return RedirectToAction("CreateProduct", "Product");
         }
 
@@ -64,19 +67,29 @@ namespace RestaurantOrder.Controllers
             
             return View(_productService.GetAll());
         }
+
         [HttpGet]
-        public IActionResult DeleteProduct()
+        public ActionResult<Product> DeleteProduct()
         {
 
-            return View();
+            return View(_productService.GetAll());
+
         }
 
         [HttpPost]
         public ActionResult<Product> DeleteProduct(int id)
         {
-            _productService.DeleteProduct(id);
-            return RedirectToAction("DeleteProduct", "Product");
-            
+            try
+            {
+                _productService.DeleteProduct(id);
+                return RedirectToAction("DeleteProduct", "Product");
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+
         }
 
         public IActionResult AddProductToList(int productId, int dishId, int quantity)

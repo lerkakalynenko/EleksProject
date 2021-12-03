@@ -1,15 +1,18 @@
 ﻿
 
-@model RestaurantOrder.Domain.Core.Entities.Dish
+@model RestaurantOrder.Services.Contracts.DishDto
 <form method="post" asp-controller="Dish" asp-action="CreateDish">
     <label>Name of dish</label>
     <input asp-for="Name" type="text" /><br />
+    <span asp-validation-for="Name" class="text-danger d-block"></span>
+
     <label>Short description</label>
     <input asp-for="Description" type="text" /><br />
     <label>Price of dish</label>
-    <input asp-for="Price " class="form-control" name="price" type="number" step="0.01" /><br />
-  
-    
+    <input asp-for="Price " class="form-control" name="price" type="text" /><br />
+    <span asp-validation-for="Price" class="text-danger d-block"></span>
+
+
     <button type="submit">Create</button>
 
 

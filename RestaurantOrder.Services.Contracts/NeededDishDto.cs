@@ -10,22 +10,13 @@ namespace RestaurantOrder.Services.Contracts
      
     public class NeededDishDto
     {
-        
        
-        private int value;
         public int Id { get; set; }
         public DishDto Dish { get; set; }
 
-        public int DishQuantity
-        {
-            get => value;
-            private set
-            {
-                if (value == 0)
-                {
-                    throw new ArgumentException("Error");
-                }
-            }
-        }
+        public int DishQuantity { get; set; }
+       
+
+        public int OrderId { get; set; }
     }
 }

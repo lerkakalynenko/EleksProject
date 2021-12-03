@@ -1,16 +1,19 @@
 ﻿@using RestaurantOrder.Domain.Core.Entities
-@model IEnumerable<RestaurantOrder.Domain.Core.Entities.Product>
+@model ICollection<RestaurantOrder.Domain.Core.Entities.Product>
 
 
 
 <form method="post" asp-controller="Product" asp-action="DeleteProduct">
 
     <label>Index of product you want to delete</label>
-    <input name="id" type="number" required="" min="1"
-           /><br />
+    <input name="id" type="number" required="" min="1" /><br />
+    <button type="submit">Delete</button>
+
+</form>
 
 
-</form> 
-
-
-<button type="submit">Delete</button>
+@foreach (var product in Model)
+{
+    <p class="name">Id: @product.Id  Name: @product.Name</p>
+    <br />
+}

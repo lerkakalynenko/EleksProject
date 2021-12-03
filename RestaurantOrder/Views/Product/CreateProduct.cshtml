@@ -1,11 +1,15 @@
-﻿
+﻿@model RestaurantOrder.Services.Contracts.ProductDto
+
 <form method="post" asp-controller="Product" asp-action="CreateProduct">
     <label>Name of product</label>
-    <input name="name" type="text" required maxlength="20"/><br/>
+    <input asp-for="Name" type="text" /><br />
+    <span asp-validation-for="Name" class="text-danger d-block"></span>
+
     <label>Quantity of product</label>
-    <input name="quantity" type="number" required min="1" max ="1000"/><br/>
+    <input asp-for="Quantity" type="number" /><br />
+    <span asp-validation-for="Quantity" class="text-danger d-block"></span>
 
     <button type="submit">Create</button>
-    
-    
+
+
 </form>

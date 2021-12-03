@@ -53,7 +53,7 @@ namespace RestaurantOrder.Infrastructure.Data.Migrations
                     b.Property<int>("DishQuantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("OrderId")
+                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -134,7 +134,9 @@ namespace RestaurantOrder.Infrastructure.Data.Migrations
 
                     b.HasOne("RestaurantOrder.Domain.Core.Entities.Order", null)
                         .WithMany("NeededDishes")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Dish");
                 });
