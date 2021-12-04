@@ -27,7 +27,7 @@ namespace RestaurantOrder.Controllers
 
         }
         
-        
+        //Todo: создать продукт
         
         [HttpPost]
         public IActionResult CreateProduct(ProductDto product)
@@ -42,13 +42,6 @@ namespace RestaurantOrder.Controllers
 
 
 
-        //[HttpPost]
-        //public IActionResult CreateProduct(string name, int quantity)
-        //{
-        //    var product = new Product{Name = name, Quantity = quantity};
-        //    productService.CreateProduct(product);
-        //    return RedirectToAction("Index", "Home");
-        //}
         [HttpGet]
         public IActionResult CreateProduct()
         {
@@ -56,13 +49,15 @@ namespace RestaurantOrder.Controllers
             return View();
         }
 
-        public ActionResult<Product> Index(int id)
-        {
-            return View(_productService.GetProductById(id));
-        }
+
+
+
+
+        //Todo: вывод всех продуктов
         [HttpGet]
         public ActionResult<Product> GetAll(int id)
         {
+            
             ViewBag.DishId = id;
             
             return View(_productService.GetAll());
@@ -75,6 +70,7 @@ namespace RestaurantOrder.Controllers
             return View(_productService.GetAll());
 
         }
+        //Todo: удалить продукт
 
         [HttpPost]
         public ActionResult<Product> DeleteProduct(int id)
@@ -92,6 +88,8 @@ namespace RestaurantOrder.Controllers
 
         }
 
+        //Todo: добавить продукты к блюду
+
         public IActionResult AddProductToList(int productId, int dishId, int quantity)
         {
             var product = _productService.GetProductById(productId);
@@ -108,17 +106,7 @@ namespace RestaurantOrder.Controllers
             _dishService.Update(dish);
             return RedirectToAction("GetAll", new {id=dishId});
         }
-        //[HttpPost]
-        //public IActionResult GetAll(int productId, int quantity)
-        //{
-
-        //    var neededProduct = new NeededProduct {Product = productId, ProductQuantity = quantity };
-
-        //    List<int> lst = new List<int>();
-
-        //    return RedirectToAction("GetAll", "Product");
-
-        //}
+        
         
 
 

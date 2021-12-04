@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using RestaurantOrder.Domain.Core.Entities;
-using RestaurantOrder.Models;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
 
@@ -18,7 +15,7 @@ namespace RestaurantOrder.Controllers
         private readonly INeededDishService _neededDishService;
         
 
-        //  конструктор
+        
         public OrderController(IOrderService orderService, IMapper mapper, IDishService dishService, INeededDishService neededDishService)
         {
             this._orderService = orderService;
@@ -28,7 +25,7 @@ namespace RestaurantOrder.Controllers
         }
 
 
-        // сделать заказ (вписать номер стола и заметки)
+        // TODO: сделать заказ (вписать номер стола и заметки)
         [HttpPost]
         public IActionResult CreateOrder(int tableNumber, string notes)
         {
@@ -70,7 +67,7 @@ namespace RestaurantOrder.Controllers
 
             return View();
         }
-        // отобразить меню (все блюда)
+        //todo: отобразить меню (все блюда)
         [HttpGet]
             public ActionResult<Dish> Menu(int id)
             {
@@ -79,14 +76,14 @@ namespace RestaurantOrder.Controllers
                 return View(_dishService.GetAll());
             }
 
-            // отобразить форму с удалением заказа 
+            //todo: отобразить форму с удалением заказа 
         [HttpGet]
         public IActionResult DeleteOrder()
         {
 
             return View();
         }
-        // удаляем заказ
+        //todo: удаляем заказ
         [HttpPost]
         public ActionResult<Order> DeleteOrder(int id)
         {

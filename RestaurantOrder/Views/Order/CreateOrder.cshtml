@@ -1,4 +1,4 @@
-﻿
+﻿@model RestaurantOrder.Services.Contracts.OrderDto
 <style>
     * {
         margin: 0;
@@ -92,12 +92,13 @@
             
             <form method="post" asp-controller="Order" asp-action="CreateOrder">
                 <p class="name">Enter the number of your table: </p>
-                <input class="input" name="tableNumber" type="number" required min="1" max="30"/>
+                <input asp-for="TableNumber" name="tableNumber" type="number" />
+                <span asp-validation-for="TableNumber" class="text-danger d-block"></span>
                 <p class="name">Enter notes for your order: </p>
-                <input class="input" name="notes" type="text" maxlength="100"/><br/>
+                <input class="input" name="notes" type="text" maxlength="100" /><br />
                 <button type="submit">Continue</button>
-             
-                @*<a class="make-order" asp-controller="Dish" asp-action="GetAll">Continue</a>*@
+
+               
             </form>
         
     </div>

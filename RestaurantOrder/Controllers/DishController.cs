@@ -1,13 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using Microsoft.VisualBasic;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
@@ -27,7 +20,7 @@ namespace RestaurantOrder.Controllers
             _orderService = orderService;
             _neededDishService = neededDishService;
         }
-
+        //Todo: создаем блюдо
         [HttpPost]
         public IActionResult CreateDish(DishDto dish)
         {
@@ -53,6 +46,8 @@ namespace RestaurantOrder.Controllers
 
             return View(_dishService.GetAll());
         }
+
+        //Todo: удаляем блюдо
         [HttpPost]
         public ActionResult<Dish> DeleteDish(int id)
         {
@@ -81,6 +76,8 @@ namespace RestaurantOrder.Controllers
 
             return View(_dishService.GetAll());
         }
+
+        //Todo: добавление блюд к заказу
 
         public IActionResult AddDishToList(int dishId, int orderId, int quantity)
         {
