@@ -17,6 +17,8 @@ namespace RestaurantOrder.Services.Contracts
         public decimal Price { get; set; }
         public ICollection<NeededProductDto> NeededProductsDto { get; set; }
 
+        public bool IsContainingInOrder { get; set; }
+
         public DishDto()
         {
             NeededProductsDto = new List<NeededProductDto>();

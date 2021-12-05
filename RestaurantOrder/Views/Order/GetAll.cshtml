@@ -1,92 +1,7 @@
-﻿
-@*@model IEnumerable<RestaurantOrder.Domain.Core.Entities.Order>*@
-@using RestaurantOrder.Services.Contracts;
+﻿@using RestaurantOrder.Services.Contracts;
 @model IEnumerable<OrderDto>
-<style>
-    * {
-        margin: 0;
-    }
 
-    h1 {
-        font-size: 35px;
-        text-align: center;
-        color: #2e2833;
-        margin-bottom: 15px;
-    }
-
-    .container {
-        max-width: 380px;
-        margin: 0 auto;
-    }
-
-    .order {
-        padding: 10px;
-        margin-bottom: 15px;
-        max-width: 340px;
-        outline: 1px solid #ccc;
-        border: 1px solid #ccc;
-    }
-
-    .name {
-        font-size: 22px;
-        text-align: center;
-        color: #4a3057;
-    }
-
-    body {
-        padding: 15px;
-    }
-
-    span {
-        color: #2eba22;
-    }
-
-    p {
-        margin-bottom: 5px;
-        font-size: 18px;
-        color: #260e3b;
-    }
-
-    .input {
-        border-color: #454147;
-    }
-
-    .add {
-        background: #2e2833;
-        color: #eee;
-        cursor: pointer;
-    }
-
-        .add:hover {
-            background: #252029;
-            color: #fff;
-        }
-
-    .return-home {
-        font-size: 18px;
-        padding: 2px;
-        color: #43384d;
-        display: block;
-        text-decoration: none;
-        font-weight: 600;
-        width: 120px;
-        text-align: center;
-        margin: 0 auto;
-        border: 2px solid #2e2b30;
-        background: #ededed;
-        border-radius: 10px;
-        transition: 0.3s ease;
-    }
-
-        .make-order:hover {
-            background: #404040;
-            color: #fff;
-        }
-
-    .display-none {
-        display: none;
-    }
-</style>
+<link href="~/css/order.css" rel="stylesheet" type="text/css" />
 <h1>All orders</h1>
 <div class="container">
     <div class="order">
@@ -102,7 +17,10 @@
                 <p class="name">Quantity: @neededDish.DishQuantity</p>
                 <hr/>
             }
+            <a class="d-block" asp-action="DeleteOrder" asp-route-id="@order.OrderId">Delete order</a>
+
             <p class="name" style="background-color: #2eba22">Total price: @order.Sum</p>
+            <hr />
         }
        
 

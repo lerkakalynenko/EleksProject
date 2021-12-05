@@ -10,35 +10,42 @@ namespace RestaurantOrder.Infrastructure.Business
 {
     public class OrderService : IOrderService
     {
-        private readonly IOrderRepository repository;
-        public OrderService(IOrderRepository orderRepository)
+        private readonly IOrderRepository _repository;
+        private readonly INeededDishService _neededDishService;
+
+
+        public OrderService(IOrderRepository orderRepository, INeededDishService neededDishService)
         {
-            this.repository = orderRepository;
+            _repository = orderRepository;
+            _neededDishService = neededDishService;
         }
+
 
         public Order CreateOrder(Order order)
         {
-            return repository.Create(order);
+            return _repository.Create(order);
         }
 
         public Order GetOrderById(int id)
         {
-            return repository.GetById(id);
+            return _repository.GetById(id);
         }
 
         public void DeleteOrder(int id)
         {
-            repository.Delete(id);
+           // var order = _repository.GetById(id);
+            
+            _repository.Delete(id);
         }
 
         public void Update(Order order)
         {
-            repository.Update(order);
+            _repository.Update(order);
         }
 
         public ICollection<Order> GetAll()
         {
-            return repository.GetAll();
+            return _repository.GetAll();
         }
     }
 }

@@ -49,15 +49,7 @@ namespace RestaurantOrder.Controllers
         {
             //ViewBag.OrderId = id;
             var orders = _mapper.Map<IEnumerable<OrderDto>>(_orderService.GetAll());
-            foreach (var order in orders)
-            {
-                var t = order.Sum;
-                var neededDishes = order.NeededDishes;
-                foreach (var neededDish in neededDishes)
-                {
-                    var p = neededDish.Dish.Price;
-                }
-            }
+
             return View(orders);
         }
 
@@ -70,31 +62,20 @@ namespace RestaurantOrder.Controllers
         }
         //todo: отобразить меню (все блюда)
         [HttpGet]
-            public ActionResult<Dish> Menu(int id)
-            {
-                ViewBag.OrderId = id;
-                
-                return View(_dishService.GetAll());
-            }
-
-            //todo: отобразить форму с удалением заказа 
-        [HttpGet]
-        public IActionResult DeleteOrder()
+        public ActionResult<Dish> Menu(int id)
         {
-
-            return View();
+            ViewBag.OrderId = id;
+            
+            return View(_dishService.GetAll());
         }
 
-        //todo: удаляем заказ
-        [HttpPost]
         public ActionResult<Order> DeleteOrder(int id)
         {
             try
             {
                 _orderService.DeleteOrder(id);
                 
-                _neededDishService.Delete(id);
-                return RedirectToAction("DeleteOrder", "Order");
+                return RedirectToAction("GetAll", "Order");
             }
             catch
             {

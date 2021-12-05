@@ -39,11 +39,7 @@ namespace RestaurantOrder.Infrastructure.Data
         public void Delete(int id)
         {
             var entity = GetById(id);
-            //dbSet.Remove(entity);
-            //foreach (var groups in neededDishes.GroupBy(o => o.OrderId))
-            //{
-            //    dbSet.Remove();
-            //}
+            dbSet.Remove(entity);
             context.SaveChanges();
         }
 

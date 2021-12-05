@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using RestaurantOrder.Domain.Core.Entities;
@@ -12,14 +13,12 @@ namespace RestaurantOrder.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IDishService _dishService;
-        private readonly INeededDishService _neededDishService;
         private readonly IOrderService _orderService;
-        public DishController(IDishService dishService, IMapper mapper, IOrderService orderService, INeededDishService neededDishService)
+        public DishController(IDishService dishService, IMapper mapper, IOrderService orderService)
         {
             _dishService = dishService;
             _mapper = mapper;
             _orderService = orderService;
-            _neededDishService = neededDishService;
         }
         //Todo: создаем блюдо
         [HttpPost]
@@ -72,41 +71,40 @@ namespace RestaurantOrder.Controllers
         [HttpGet]
         public ActionResult<Dish> GetAll(int orderId)
         {
-            var order = _orderService.GetOrderById(orderId);
+            var order = _mapper.Map<OrderDto>(_orderService.GetOrderById(orderId));
 
             ViewBag.OrderId = orderId;
             ViewBag.CountOfDishes = order.NeededDishes.Count;
+            
+            var dishes = _mapper.Map<IEnumerable<DishDto>>(_dishService.GetAll());
+            var connectionDishOrder = new ConnectionDishOrder(order, dishes);
 
-            var dishes = _dishService.GetAll();
-
-            return View(dishes);
+            return View(connectionDishOrder);
         }
 
         //Todo: добавление блюд к заказу
         [HttpPost]
         public IActionResult AddDishToList(int dishId, int orderId, int quantity)
         {
-            var order = _orderService.GetOrderById(orderId);
-            var dish = _dishService.GetDishById(dishId);
-
-            var neededDish = new NeededDish()
-            {
-                Dish = dish,
-                DishQuantity = quantity,
-
-            };
             try
             {
-                order.NeededDishes.Add(neededDish);
+                var dish = _dishService.GetDishById(dishId);
+                var neededDish = new NeededDish()
+                {
+                    Dish = dish,
+                    DishQuantity = quantity,
+                };
 
-                _neededDishService.Create(neededDish);
+                var order = _orderService.GetOrderById(orderId);
+                
+                order.NeededDishes.Add(neededDish);
                 _orderService.Update(order);
 
                 return RedirectToAction("AddedDishes", new {orderId});
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new ArgumentException("Error");
+                return BadRequest(ex.Message);
             }
         }
 
