@@ -1,6 +1,13 @@
 ﻿@model IEnumerable<RestaurantOrder.Domain.Core.Entities.Dish>
+<style>
+    a.disabled {
+        color: #888;
+        pointer-events: none;
+        cursor: default;
+    }
+</style>
 
-<link href="StylePartial.css" rel="stylesheet" type="text/css" >
+<link href="StylePartial.css" rel="stylesheet" type="text/css">
     
     <h1>Create order</h1>
     <div class="container">
@@ -18,5 +25,24 @@
                 </form>
             }
         </div>
-        <a class="make-order" asp-controller="Home" asp-action="Index">Make order</a>
-    </div>  
+        @if (ViewBag.CountOfDishes < 1)
+        {
+            <a class="make-order disabled" href="#">Add 1 or more dishes to order</a>
+        }
+        else
+        {
+            <a class="make-order" asp-controller="Home" asp-action="Index">Make order</a>
+        }
+
+    </div> 
+
+<!--script to disable the submit button -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">  
+</script>
+<script type="text/javascript">
+
+    $("form").submit(function() {
+        $(this).find('input[type="submit"]').prop("disabled", true);
+    });
+
+</script> 

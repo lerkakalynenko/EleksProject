@@ -1,0 +1,8 @@
+﻿@model RestaurantOrder.Domain.Core.Entities.Order
+@foreach (var neededDish in Model.NeededDishes)
+{
+    <p>@neededDish.Dish.Name | @neededDish.DishQuantity</p>
+    <a asp-action="DeleteDishFromOrder" asp-route-orderId="@Model.OrderId" asp-route-neededDishId="@neededDish.Id">Delete dish</a>
+    <hr />
+}
+<a asp-action="GetAll" asp-route-orderId="@Model.OrderId">Back to order</a>

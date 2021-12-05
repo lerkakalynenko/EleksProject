@@ -93,7 +93,6 @@
         
         @foreach (var order in @Model)
         {
-            <hr/>
             <p class="name">Table number: @order.TableNumber</p>
             <p class="name">Notes: @order.Notes</p>
             @foreach (var neededDish in order.NeededDishes)
@@ -101,9 +100,9 @@
                 <p class="name">Name: @neededDish.Dish.Name</p>
                 <p class="name">Price: @neededDish.Dish.Price</p>
                 <p class="name">Quantity: @neededDish.DishQuantity</p>
+                <hr/>
             }
             <p class="name" style="background-color: #2eba22">Total price: @order.Sum</p>
-            <hr/>
         }
        
 

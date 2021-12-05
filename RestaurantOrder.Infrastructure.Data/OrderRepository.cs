@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using RestaurantOrder.Domain.Core;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Domain.Interfaces;
@@ -14,6 +16,7 @@ namespace RestaurantOrder.Infrastructure.Data
     {
         private readonly ApplicationContext context;
         private readonly DbSet<Order> dbSet;
+        private readonly DbSet<NeededDish> neededDishes;
         public OrderRepository(ApplicationContext context)
         {
             this.context = context;
@@ -36,7 +39,11 @@ namespace RestaurantOrder.Infrastructure.Data
         public void Delete(int id)
         {
             var entity = GetById(id);
-            dbSet.Remove(entity);
+            //dbSet.Remove(entity);
+            //foreach (var groups in neededDishes.GroupBy(o => o.OrderId))
+            //{
+            //    dbSet.Remove();
+            //}
             context.SaveChanges();
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using AutoMapper;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
@@ -69,16 +70,20 @@ namespace RestaurantOrder.Controllers
         }
 
         [HttpGet]
-        public ActionResult<Dish> GetAll(int id)
+        public ActionResult<Dish> GetAll(int orderId)
         {
-            ViewBag.OrderId = id;
+            var order = _orderService.GetOrderById(orderId);
 
+            ViewBag.OrderId = orderId;
+            ViewBag.CountOfDishes = order.NeededDishes.Count;
 
-            return View(_dishService.GetAll());
+            var dishes = _dishService.GetAll();
+
+            return View(dishes);
         }
 
         //Todo: добавление блюд к заказу
-
+        [HttpPost]
         public IActionResult AddDishToList(int dishId, int orderId, int quantity)
         {
             var order = _orderService.GetOrderById(orderId);
@@ -95,23 +100,36 @@ namespace RestaurantOrder.Controllers
                 order.NeededDishes.Add(neededDish);
 
                 _neededDishService.Create(neededDish);
-
-
                 _orderService.Update(order);
-                return RedirectToAction("GetAll", new { id = orderId });
 
+                return RedirectToAction("AddedDishes", new {orderId});
             }
             catch (Exception)
             {
                 throw new ArgumentException("Error");
             }
-            
-                
-            
-
-
-           
         }
 
+        [HttpGet]
+        public IActionResult AddedDishes(int orderId)
+        {
+            var order = _orderService.GetOrderById(orderId);
+            
+            return View(order);
+        }
+
+        public IActionResult DeleteDishFromOrder(int orderId, int neededDishId)
+        {
+            var order = _orderService.GetOrderById(orderId);
+            var findDish = order.NeededDishes.FirstOrDefault(nDish => nDish.Id == neededDishId);
+
+            if (findDish != null)
+            {
+                order.NeededDishes.Remove(findDish);
+            }
+            _orderService.Update(order);
+
+            return RedirectToAction("AddedDishes", new { orderId });
+        }
     }
 }

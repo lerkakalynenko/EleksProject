@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using RestaurantOrder.Domain.Core.Entities;
@@ -18,7 +19,7 @@ namespace RestaurantOrder.Controllers
         
         public OrderController(IOrderService orderService, IMapper mapper, IDishService dishService, INeededDishService neededDishService)
         {
-            this._orderService = orderService;
+            _orderService = orderService;
             _mapper = mapper;
             _dishService = dishService;
             _neededDishService = neededDishService;
@@ -33,11 +34,11 @@ namespace RestaurantOrder.Controllers
             {
                 var order = new OrderDto { TableNumber = tableNumber, Notes = notes };
                 var createdOrder = _orderService.CreateOrder(_mapper.Map<Order>(order));
-                return RedirectToAction("GetAll", "Dish", new { id = createdOrder.OrderId });
+                return RedirectToAction("GetAll", "Dish", new { orderId = createdOrder.OrderId });
             }
-            catch
+            catch(Exception e)
             {
-                return BadRequest();
+                return BadRequest(e.Message);
             }
         }
 
@@ -83,6 +84,7 @@ namespace RestaurantOrder.Controllers
 
             return View();
         }
+
         //todo: удаляем заказ
         [HttpPost]
         public ActionResult<Order> DeleteOrder(int id)
@@ -90,6 +92,8 @@ namespace RestaurantOrder.Controllers
             try
             {
                 _orderService.DeleteOrder(id);
+                
+                _neededDishService.Delete(id);
                 return RedirectToAction("DeleteOrder", "Order");
             }
             catch
