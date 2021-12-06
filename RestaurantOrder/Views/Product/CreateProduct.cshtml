@@ -1,14 +1,20 @@
 ﻿@model RestaurantOrder.Services.Contracts.ProductDto
+<link href="~/css/StylePartial.css" rel="stylesheet" type="text/css"/>
 
-<form method="post" asp-controller="Product" asp-action="CreateProduct">
-    <label>Name of product</label>
-    <input asp-for="Name" type="text" /><br />
-    <span asp-validation-for="Name" class="text-danger d-block"></span>
-    <label>Quantity of product</label>
-    <input asp-for="Quantity" type="number" /><br />
-    <span asp-validation-for="Quantity" class="text-danger d-block"></span>
+<h1 style="color: #ad0aff">Create product</h1>
+<div class="container">
+    <div class="dish">
+        <form method="post" asp-controller="Product" asp-action="CreateProduct">
+            <p class="name">Name of product</p>
+            <input class="input" asp-for="Name" type="text" /><br />
+            <span asp-validation-for="Name" class="text-danger d-block"></span>
+            <p class="name">Quantity of product</p>
+            <input class="input" asp-for="Quantity" type="number" /><br />
+            <span asp-validation-for="Quantity" class="text-danger d-block"></span><hr/>
 
-    <button type="submit">Create</button>
+            <button class="make-order" type="submit">Create</button>
 
 
-</form>
+        </form>
+    </div>
+</div>

@@ -2,14 +2,14 @@
 
 <link href="~/css/StylePartial.css" rel="stylesheet" type="text/css" />
     
-    <h1>Create order</h1>
+    <h1 style="color: #ad0aff">Create order</h1>
     <div class="container">
         <div class="dish">
             @foreach (var dish in Model.Dishes)
             {
                 <h3 class="name">@dish.Name</h3>
                 <p class="name">Price: <span>@dish.Price$</span></p>
-                <p class="name">Description:@dish.Description</p>
+                <p class="name">Description: @dish.Description</p>
                 <form method="post" asp-controller="Dish" asp-action="AddDishToList">
                     <input class="display-none" name="dishId" type="number" hidden value="@dish.Id" />
                     <input class="display-none" name="orderId" type="number" value="@ViewBag.OrderId" hidden />

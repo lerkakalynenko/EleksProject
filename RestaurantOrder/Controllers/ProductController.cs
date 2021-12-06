@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Data.SqlClient.DataClassification;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;

@@ -2,7 +2,7 @@
 @model IEnumerable<OrderDto>
 
 <link href="~/css/StylePartial.css" rel="stylesheet" type="text/css" />
-<h1>All orders</h1>
+<h1 style="color: #ad0aff">All orders</h1>
 <div class="container">
     <div class="dish">
         
@@ -17,7 +17,7 @@
                 <p class="name">Quantity: @neededDish.DishQuantity</p>
                 <hr/>
             }
-            <a class="make-order" asp-action="DeleteOrder" asp-route-id="@order.OrderId">Delete order</a><hr>
+            <a class="make-order"  asp-action="DeleteOrder" asp-route-id="@order.OrderId">Delete order</a><hr>
 
             <p class="name" style="background-color: #a761ed">Total price: @order.Sum</p>
             <hr />

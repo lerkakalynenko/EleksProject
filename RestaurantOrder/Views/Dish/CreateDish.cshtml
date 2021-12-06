@@ -1,19 +1,25 @@
-﻿
+﻿@model RestaurantOrder.Services.Contracts.DishDto
 
-@model RestaurantOrder.Services.Contracts.DishDto
-<form method="post" asp-controller="Dish" asp-action="CreateDish">
-    <label>Name of dish</label>
-    <input asp-for="Name" type="text" /><br />
-    <span asp-validation-for="Name" class="text-danger d-block"></span>
+<link href="~/css/StylePartial.css" rel="stylesheet" type="text/css" />
+<h1 style="color: #ad0aff">Create dish</h1>
+<div class="container">
+    <div class="dish">
+       
+        <form method="post" asp-controller="Dish" asp-action="CreateDish">
+            <p class="name">Name of dish</p><br />
+            <input class="input" asp-for="Name" type="text" /><br />
+            <span asp-validation-for="Name" class="text-danger d-block"></span>
 
-    <label>Short description</label>
-    <input asp-for="Description" type="text" /><br />
-    <label>Price of dish</label>
-    <input asp-for="Price " class="form-control" name="price" type="text" /><br />
-    <span asp-validation-for="Price" class="text-danger d-block"></span>
+            <p class="name">Short description</p>
+            <input class="input" asp-for="Description" type="text" /><br />
+            <p class="name">Price of dish</p>
+            <input class="input" asp-for="Price" name="price" type="text" /><br /><hr />
+            <span asp-validation-for="Price" class="text-danger d-block"></span>
 
 
-    <button type="submit">Create</button>
+            <button class="make-order" type="submit">Create</button>
+            @*<a class="make-order" asp-controller="Product" asp-action="AddProductToList">Create</a><br />*@
 
-
-</form>
+        </form>
+    </div> 
+    </div>

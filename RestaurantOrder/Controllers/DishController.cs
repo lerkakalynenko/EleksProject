@@ -40,33 +40,11 @@ namespace RestaurantOrder.Controllers
             
             return View();
         }
-        [HttpGet]
-        public ActionResult<Dish> DeleteDish()
-        {
-
-            return View(_dishService.GetAll());
-        }
-
-        //Todo: удаляем блюдо
-        [HttpPost]
-        public ActionResult<Dish> DeleteDish(int id)
-        {
-            try
-            {
-                _dishService.DeleteDish(id);
-                
-
-                return RedirectToAction("DeleteDish", "Dish");
-
-            }
-            catch
-            {
-                 return BadRequest("Index that you entered doesn't exist!!!");
-            }
+        
                
 
 
-        }
+       
 
         [HttpGet]
         public ActionResult<Dish> GetAll(int orderId)
