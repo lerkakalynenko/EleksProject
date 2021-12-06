@@ -1,15 +1,15 @@
 ﻿@using RestaurantOrder.Services.Contracts;
 @model IEnumerable<OrderDto>
 
-<link href="~/css/order.css" rel="stylesheet" type="text/css" />
+<link href="~/css/StylePartial.css" rel="stylesheet" type="text/css" />
 <h1>All orders</h1>
 <div class="container">
-    <div class="order">
+    <div class="dish">
         
         @foreach (var order in @Model)
         {
-            <p class="name">Table number: @order.TableNumber</p>
-            <p class="name">Notes: @order.Notes</p>
+            <h1 style="color: #760da6 ">Table number: @order.TableNumber</h1>
+            <p style="color: blueviolet">Notes: @order.Notes</p>
             @foreach (var neededDish in order.NeededDishes)
             {
                 <p class="name">Name: @neededDish.Dish.Name</p>
@@ -17,9 +17,9 @@
                 <p class="name">Quantity: @neededDish.DishQuantity</p>
                 <hr/>
             }
-            <a class="d-block" asp-action="DeleteOrder" asp-route-id="@order.OrderId">Delete order</a>
+            <a class="make-order" asp-action="DeleteOrder" asp-route-id="@order.OrderId">Delete order</a><hr>
 
-            <p class="name" style="background-color: #2eba22">Total price: @order.Sum</p>
+            <p class="name" style="background-color: #a761ed">Total price: @order.Sum</p>
             <hr />
         }
        
@@ -27,5 +27,5 @@
 
 
     </div>
-    <a class="return-home" asp-controller="Home" asp-action="Index">Return home</a>
+    <a class="make-order" asp-controller="Home" asp-action="Index">Return home</a>
 </div>

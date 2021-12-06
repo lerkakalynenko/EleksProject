@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
-using RestaurantOrder.Domain.Core;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Domain.Interfaces;
 

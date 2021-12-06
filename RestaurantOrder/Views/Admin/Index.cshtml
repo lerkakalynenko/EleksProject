@@ -1,17 +1,17 @@
-﻿
+﻿<link href="~/css/StylePartial.css" rel="stylesheet" type="text/css" />
+<h1>Enter useful information about dishes</h1>
+<div class="container">
+<div class="dish">
+   
+    <a class="make-order" asp-controller="Order" asp-action="GetAll">Show all orders</a> <hr/>
 
-<div class="text-center">
-    <h1 class="display-4">Enter useful information about dishes</h1>
-    <a asp-controller="Order" asp-action="GetAll">Show all orders</a> <br />
+    <a class="make-order" asp-controller="Product" asp-action="CreateProduct">Create product</a> <hr/>
+    <a class="make-order" asp-controller="Product" asp-action="DeleteProduct">Delete the product</a><hr />
 
-    <a asp-controller="Product" asp-action="CreateProduct">Create product</a> <br />
-    <a asp-controller="Product" asp-action="DeleteProduct">Delete the product</a><br /><br />
+    <a class="make-order" asp-controller="Dish" asp-action="CreateDish">Create dish</a><hr />
+    <a class="make-order" asp-controller="Dish" asp-action="DeleteDish">Delete the dish</a><hr />
 
-    <a asp-controller="Dish" asp-action="CreateDish">Create dish</a><br />
-    <a asp-controller="Dish" asp-action="DeleteDish">Delete the dish</a><br /><br />
+    <a class="make-order" asp-controller="Home" asp-action="Index">Return home</a>
 
-    
-
-    <a asp-controller="Order" asp-action="DeleteOrder">DeleteOrder</a><br />
-
+</div>
 </div>

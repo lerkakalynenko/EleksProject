@@ -7,7 +7,7 @@ namespace RestaurantOrder.Services.Contracts
     {
         public OrderDto Order { get; set; }
         public IEnumerable<DishDto> Dishes { get; set; }
-        public int Quantity { get; set; }
+        public int Quantity { get; private set; }
 
         public ConnectionDishOrder(OrderDto order, IEnumerable<DishDto> dishes)
         {
@@ -30,5 +30,7 @@ namespace RestaurantOrder.Services.Contracts
             return false;
             //return Order.NeededDishes.Select(neededDish => neededDish.Dish.Id == dishId).FirstOrDefault();
         }
+
+       
     }
 }

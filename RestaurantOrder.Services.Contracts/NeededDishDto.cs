@@ -10,11 +10,21 @@ namespace RestaurantOrder.Services.Contracts
 {
      
     public class NeededDishDto
-    {
+    {   //private Dish _dish;
         private int _quantity;
-       
         public int Id { get; set; }
-        public DishDto Dish { get; set; }
+       
+        public DishDto Dish
+        {
+            get;
+            set;
+
+
+
+
+
+        }
+
         public int DishQuantity { get => _quantity; 
             set
         {

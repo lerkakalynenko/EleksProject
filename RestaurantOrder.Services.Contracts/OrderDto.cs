@@ -32,7 +32,7 @@ namespace RestaurantOrder.Services.Contracts
 
         public ICollection<NeededDishDto> NeededDishes { get; set; }
 
-        public decimal Sum => NeededDishes.Sum(neededDish => neededDish.Dish.Price);
+        public decimal Sum => NeededDishes.Sum(neededDish => neededDish.Dish.Price * neededDish.DishQuantity);
 
         public OrderDto()
         {
