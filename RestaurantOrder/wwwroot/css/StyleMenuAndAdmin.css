@@ -1,7 +1,6 @@
 ﻿
 * {
     background-color: #f7e8ff;
-   
     margin: 0;
 }
 
@@ -17,7 +16,6 @@ h1 {
 .container {
     max-width: 380px;
     text-align: center;
-   
     margin: 0 auto;
 }
 
@@ -37,7 +35,7 @@ h1 {
 }
 
 body {
-   
+    background-color: #cd89f0;
     padding: 15px;
     background-image: url("images/Photo1.jpg")
 }
@@ -55,7 +53,6 @@ p {
     font-weight: bold;
     font-style: italic;
     color: #2b0638;
-
 }
 
 p1 {
@@ -96,35 +93,28 @@ p1 {
     background: #d1b7eb;
     border-radius: 10px;
     transition: 0.3s ease;
+    
 }
 
     .make-order:hover {
         background: #404040;
         color: #fff;
-        
     }
 
-    .display-none {
-        display: none;
-    }
-    a.disabled {
-        color: #777;
-        pointer-events: none;
-        cursor: default;
-    }
+.display-none {
+    display: none;
+}
+
+a.disabled {
+    color: #777;
+    pointer-events: none;
+    cursor: default;
+}
 
 .quantity {
     text-align: center;
     color: #e68405;
     font-weight: bold;
 }
-a.rollover {
-    background: url("images/Photo4.jpg"); /* Путь к файлу с исходным  рисунком */
-    display: block; /* Рисунок как блочный элемент */
-    width: 320px; /* Ширина рисунка в пикселах */
-    height: 250px; /* Высота рисунка */
-}
 
-a.rollover:hover {
-    background: url("images/Photo2.jpg"); /* Смещение фона */
-}
+
