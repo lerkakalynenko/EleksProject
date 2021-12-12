@@ -1,0 +1,23 @@
+﻿@model LoginViewModel
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Enter to an admin panel</h3>
+    </div>
+    <div class="panel-body">
+        <p class="lead">Enter to the system to get access:</p>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>Login</label>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+            <input type="submit" value="Enter" class="btn btn-primary" />
+        }
+    </div>
+</div>

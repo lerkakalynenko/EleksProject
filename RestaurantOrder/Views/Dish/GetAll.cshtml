@@ -10,6 +10,10 @@
                 <h3 class="name">@dish.Name</h3>
                 <p class="name">Price: <span>@dish.Price$</span></p>
                 <p class="name">Description: @dish.Description</p>
+                @foreach (var product in dish.NeededProducts)
+                {
+                    <p class="name">@product.Product.Name</p>
+                }
                 <form method="post" asp-controller="Dish" asp-action="AddDishToList">
                     <input class="display-none" name="dishId" type="number" hidden value="@dish.Id" />
                     <input class="display-none" name="orderId" type="number" value="@ViewBag.OrderId" hidden />

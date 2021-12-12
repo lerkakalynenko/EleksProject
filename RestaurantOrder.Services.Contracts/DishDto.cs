@@ -15,15 +15,15 @@ namespace RestaurantOrder.Services.Contracts
         [Required(ErrorMessage = "Enter the price of dish")]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
-        public ICollection<NeededProductDto> NeededProductsDto { get; set; }
+        public ICollection<NeededProductDto> NeededProducts { get; set; }
 
         public bool IsContainingInOrder { get; set; }
 
         public DishDto()
         {
-            NeededProductsDto = new List<NeededProductDto>();
+            NeededProducts = new List<NeededProductDto>();
         }
 
-
+       
     }
 }

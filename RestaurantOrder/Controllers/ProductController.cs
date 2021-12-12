@@ -1,12 +1,14 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
 
 namespace RestaurantOrder.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         
@@ -26,7 +28,6 @@ namespace RestaurantOrder.Controllers
         }
         
         //Todo: создать продукт
-        
         [HttpPost]
         public IActionResult CreateProduct(ProductDto product)
         {
@@ -88,10 +89,10 @@ namespace RestaurantOrder.Controllers
 
         //Todo: добавить продукты к блюду
 
-        public IActionResult AddProductToList(int productId, int dishId, int quantity)
+        public IActionResult AddProductToList(int productId, int neededDishId, int quantity)
         {
             var product = _productService.GetProductById(productId);
-            var dish = _dishService.GetDishById(dishId);
+            var dish = _dishService.GetDishById(neededDishId);
 
             var neededProduct = new NeededProduct
             {
@@ -102,7 +103,7 @@ namespace RestaurantOrder.Controllers
             _neededProductService.Create(neededProduct);
 
             _dishService.Update(dish);
-            return RedirectToAction("GetAll", new {id=dishId});
+            return RedirectToAction("GetAll", new {id= neededDishId });
         }
         
         

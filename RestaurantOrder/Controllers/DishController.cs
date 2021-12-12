@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
 
 namespace RestaurantOrder.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DishController : Controller
     {
         private readonly IMapper _mapper;
@@ -20,7 +22,7 @@ namespace RestaurantOrder.Controllers
             _mapper = mapper;
             _orderService = orderService;
         }
-        //Todo: создаем блюдо
+       
         [HttpPost]
         public IActionResult CreateDish(DishDto dish)
         {
@@ -37,16 +39,11 @@ namespace RestaurantOrder.Controllers
         [HttpGet]
         public IActionResult CreateDish()
         {
-            
             return View();
         }
         
-               
-
-
-       
-
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult<Dish> GetAll(int orderId)
         {
             var order = _mapper.Map<OrderDto>(_orderService.GetOrderById(orderId));
@@ -60,8 +57,9 @@ namespace RestaurantOrder.Controllers
             return View(connectionDishOrder);
         }
 
-        //Todo: добавление блюд к заказу
+        
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult AddDishToList(int dishId, int orderId, int quantity)
         {
             try
@@ -87,13 +85,14 @@ namespace RestaurantOrder.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult AddedDishes(int orderId)
         {
             var order = _orderService.GetOrderById(orderId);
             
             return View(order);
         }
-
+        [AllowAnonymous]
         public IActionResult DeleteDishFromOrder(int orderId, int neededDishId)
         {
             var order = _orderService.GetOrderById(orderId);

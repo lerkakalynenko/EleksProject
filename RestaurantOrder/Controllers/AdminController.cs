@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RestaurantOrder.Controllers
 
-{  
-    
+{
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
        

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using RestaurantOrder.Models;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RestaurantOrder.Controllers
 {

@@ -16,12 +16,6 @@ namespace RestaurantOrder.Infrastructure.Data
             Database.EnsureCreated();
 
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            
-            base.OnConfiguring(optionsBuilder);
-        }
     }
     
 }

@@ -6,7 +6,6 @@
         {
             <h1>@neededDish.Dish.Name: @neededDish.DishQuantity  </h1>
             <p class="name"><span>  @neededDish.Dish.Price $</span> </p>
-            <p class="name">@neededDish.Dish.Price X @neededDish.DishQuantity = <span> $</span> </p>                                                        
             <a class='make-order' asp-action="DeleteDishFromOrder" asp-route-orderId="@Model.OrderId" asp-route-neededDishId="@neededDish.Id">Delete dish</a>
             <hr />
         }

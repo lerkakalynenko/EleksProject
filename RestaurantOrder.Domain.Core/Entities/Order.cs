@@ -12,5 +12,6 @@ namespace RestaurantOrder.Domain.Core.Entities
         {
             NeededDishes = new List<NeededDish>();
         }
+
     }
 }

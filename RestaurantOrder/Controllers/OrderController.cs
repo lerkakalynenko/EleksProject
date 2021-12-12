@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Services.Contracts;
 using RestaurantOrder.Services.Interfaces;
@@ -13,20 +14,16 @@ namespace RestaurantOrder.Controllers
         private readonly IOrderService _orderService;
         private readonly IMapper _mapper;
         private readonly IDishService _dishService;
-        private readonly INeededDishService _neededDishService;
-        
 
-        
-        public OrderController(IOrderService orderService, IMapper mapper, IDishService dishService, INeededDishService neededDishService)
+
+
+        public OrderController(IOrderService orderService, IMapper mapper, IDishService dishService)
         {
             _orderService = orderService;
             _mapper = mapper;
             _dishService = dishService;
-            _neededDishService = neededDishService;
         }
 
-
-        // TODO: сделать заказ (вписать номер стола и заметки)
         [HttpPost]
         public IActionResult CreateOrder(int tableNumber, string notes)
         {
@@ -43,24 +40,22 @@ namespace RestaurantOrder.Controllers
         }
 
         
-        //TODO: все заказы отобразить
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult<Order> GetAll()
         {
-            //ViewBag.OrderId = id;
             var orders = _mapper.Map<IEnumerable<OrderDto>>(_orderService.GetAll());
 
             return View(orders);
         }
 
-        //TODO: отобразить форму с созданием заказа
         [HttpGet]
         public IActionResult CreateOrder()
         {
 
             return View();
         }
-        //todo: отобразить меню (все блюда)
+
         [HttpGet]
         public ActionResult<Dish> Menu(int id)
         {

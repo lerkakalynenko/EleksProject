@@ -1,6 +1,10 @@
+using System;
+using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +31,9 @@ namespace RestaurantOrder
             var connection = Configuration.GetConnectionString("ConnectionString");
 
             services.AddDbContext<ApplicationContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connection));
+            services.AddDbContext<SecurityContext>(options => options.UseSqlServer(connection));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<SecurityContext>();
+
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
 
@@ -44,7 +51,13 @@ namespace RestaurantOrder
 
             // Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc => { mc.AddProfile(new MappingProfile()); });
-
+            // установка конфигурации подключения
+            services.AddAuthorization();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             
@@ -71,7 +84,9 @@ namespace RestaurantOrder
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+               
 
             app.UseEndpoints(endpoints =>
             {
@@ -80,6 +95,10 @@ namespace RestaurantOrder
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+       
+
+        
     }
+
 
 }
