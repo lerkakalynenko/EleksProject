@@ -10,10 +10,11 @@
                 <h3 class="name">@dish.Name</h3>
                 <p class="name">Price: <span>@dish.Price$</span></p>
                 <p class="name">Description: @dish.Description</p>
+                <p class="name">What dish consists of:</p>
                 @foreach (var product in dish.NeededProducts)
-                {
-                    <p class="name">@product.Product.Name</p>
-                }
+                {<p style="color: blueviolet">@product.Product.Name - @product.Product.Quantity</p>
+
+            }
                 <form method="post" asp-controller="Dish" asp-action="AddDishToList">
                     <input class="display-none" name="dishId" type="number" hidden value="@dish.Id" />
                     <input class="display-none" name="orderId" type="number" value="@ViewBag.OrderId" hidden />
@@ -23,13 +24,13 @@
                     {
                         <input class="input quantity" disabled="disabled" value="@Model.Quantity" />
                         <input class="add" disabled="disabled" type="submit" value="Add to order" />
-                                                                                                 <hr/>
+                        <hr />
                     }
                     else
                     {
                         <input class="input" name="quantity" type="number" min="1" />
-                        <input class="add" type="submit"  value="Add to order" />
-                        <hr/>
+                        <input class="add" type="submit" value="Add to order" />
+                        <hr />
                     }
 
                 </form>
@@ -45,7 +46,5 @@
             <a class="make-order"  asp-controller="Home" asp-action="Index">Make order</a>
         }
 
-    </div> 
-
-
+    </div>
 

@@ -1,11 +1,10 @@
 ﻿@model LoginViewModel
-
-<div class="panel">
-    <div class="panel-heading">
-        <h3>Enter to an admin panel</h3>
+    <link href="~/css/StyleMenuAndAdmin.css" rel="stylesheet" type="text/css" />
+<div class="container">
+    <div class="dish">
+        <h1>Enter to an admin panel</h1>
     </div>
-    <div class="panel-body">
-        <p class="lead">Enter to the system to get access:</p>
+    <div class="name">
         @using (Html.BeginForm())
         {
             @Html.ValidationSummary()

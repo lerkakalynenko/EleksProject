@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace RestaurantOrder.Services.Contracts
@@ -12,7 +13,6 @@ namespace RestaurantOrder.Services.Contracts
 
 
         public int OrderId { get; set; }
-
         public int TableNumber
         {
             get => _tableNumber;

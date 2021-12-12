@@ -10,9 +10,10 @@
             <span asp-validation-for="Name" class="text-danger d-block"></span>
             <p class="name">Quantity of product</p>
             <input class="input" asp-for="Quantity" type="number" /><br />
-            <span asp-validation-for="Quantity" class="text-danger d-block"></span><hr/>
+            <span asp-validation-for="Quantity" class="text-danger d-block"></span><hr />
 
-            <button class="make-order" type="submit">Create</button>
+            <button class="make-order" type="submit">Create</button><hr />
+            <a class="make-order" asp-controller="Admin" asp-action="Index">Return to admin page</a>
 
 
         </form>

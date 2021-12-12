@@ -2,6 +2,7 @@
 * {
     background-color: #f7e8ff;
     margin: 0;
+    text-align: center
 }
 
 h1 {
@@ -17,7 +18,7 @@ h1 {
     max-width: 380px;
 
     text-align: center;
-    align-items: center;
+
     margin: 0 auto;
 }
 
@@ -37,9 +38,12 @@ h1 {
 }
 
 body {
-    background-color: #cd89f0;
+    
     padding: 15px;
-    background-image: url("images/food.jpg")
+    background: url("images/food.jpg") no-repeat center center fixed;
+    background-size: cover;
+    
+    
 }
 
 

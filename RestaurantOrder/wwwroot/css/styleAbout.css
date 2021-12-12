@@ -36,7 +36,8 @@ h1 {
 body {
     background-color: #cd89f0;
     padding: 15px;
-    background-image: url("images/Photo4.jpg")
+    background-image: url("images/Photo4.jpg");
+    height: 100vh;
 }
 
 

@@ -1,4 +1,5 @@
-﻿@model RestaurantOrder.Domain.Core.Entities.Order
+﻿@using RestaurantOrder.Domain.Core.Entities
+@model RestaurantOrder.Domain.Core.Entities.Order
 <link href="~/css/StyleMenuAndAdmin.css" rel="stylesheet" type="text/css" />
 <div class="container">
     <div class="dish">
@@ -6,10 +7,13 @@
         {
             <h1>@neededDish.Dish.Name: @neededDish.DishQuantity  </h1>
             <p class="name"><span>  @neededDish.Dish.Price $</span> </p>
+
             <a class='make-order' asp-action="DeleteDishFromOrder" asp-route-orderId="@Model.OrderId" asp-route-neededDishId="@neededDish.Id">Delete dish</a>
-            <hr />
+            <hr /> 
+            
         }
-        <a class="make-order" asp-action="GetAll" asp-route-orderId="@Model.OrderId">Back to order</a><hr/>
+
+        <a class="make-order" asp-action="GetAll" asp-route-orderId="@Model.OrderId">Back to order</a><hr />
         <a class="make-order" asp-controller="Home" asp-action="Index">Make order</a>
     </div>
 </div> 

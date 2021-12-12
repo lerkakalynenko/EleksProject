@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body style="text-align: center"><div style="height: 90vh; display: inline-block; margin: auto; text-align: center">
     <header style="width: 380px;  margin: 0 auto">
         <nav class="navbar navbar-expand-sm navbar-light bg-transparent border-bottom box-shadow mb-xl-2">
-            <div class="container">
+            <div  class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RestaurantOrder</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -29,12 +29,12 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div  class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+</div>
     <footer class="border-top footer text-muted" style="width: 380px; margin: 0 auto" >
         <div class="container">
             
