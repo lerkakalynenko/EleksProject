@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Domain.Interfaces;
-using RestaurantOrder.Domain.Core;
+
 namespace RestaurantOrder.Infrastructure.Data
 {
     
@@ -37,10 +33,6 @@ namespace RestaurantOrder.Infrastructure.Data
             return dbSet.ToList();
         }
 
-        //public IEnumerable<Product> GetAll()
-        //{
-        //    return dbSet.ToList();
-        //}
         public void Delete(int id)
         {
            

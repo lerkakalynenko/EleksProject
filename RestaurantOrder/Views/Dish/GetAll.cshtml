@@ -11,12 +11,12 @@
                 <p class="name">Price: <span>@dish.Price$</span></p>
                 <p class="name">Description: @dish.Description</p>
                 <p class="name">What dish consists of:</p>
-                @foreach (var product in dish.NeededProducts)
-                {<p style="color: blueviolet">@product.Product.Name - @product.Product.Quantity</p>
+                @foreach (var neededProduct in dish.NeededProducts)
+                {<p style="color: blueviolet">@neededProduct.Product.Name - @neededProduct.ProductQuantity</p>
 
             }
                 <form method="post" asp-controller="Dish" asp-action="AddDishToList">
-                    <input class="display-none" name="dishId" type="number" hidden value="@dish.Id" />
+                    <input class="display-none" name="dishId" type="number" hidden value="@dish.Id"  />
                     <input class="display-none" name="orderId" type="number" value="@ViewBag.OrderId" hidden />
 
 
@@ -28,7 +28,7 @@
                     }
                     else
                     {
-                        <input class="input" name="quantity" type="number" min="1" />
+                        <input class="input" name="quantity" type="number"  min="1" />
                         <input class="add" type="submit" value="Add to order" />
                         <hr />
                     }

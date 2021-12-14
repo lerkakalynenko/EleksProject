@@ -19,13 +19,13 @@ namespace RestaurantOrder.Services.Contracts
             get => _quantity;
             set
             {
-                if (value is 0)
-                {
-                    throw new ArgumentException("Quantity of needed product must not be 0", nameof(value));
-                }
+                //    if (value is 0)
+                //    {
+                //        throw new ArgumentException("Quantity of needed product must not be 0", nameof(value));
+                //    }
 
                 _quantity = value;
-            }
+        }
         }
     }
 }

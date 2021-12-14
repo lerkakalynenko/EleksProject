@@ -72,9 +72,9 @@ namespace RestaurantOrder.Controllers
                 
                 return RedirectToAction("GetAll", "Order");
             }
-            catch
+            catch(Exception e)
             {
-                return BadRequest("Index that you entered doesn't exist");
+                return BadRequest(e.Message);
             }
             
         }

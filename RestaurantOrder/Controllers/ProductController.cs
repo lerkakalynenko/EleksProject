@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -27,7 +28,6 @@ namespace RestaurantOrder.Controllers
 
         }
         
-        //Todo: создать продукт
         [HttpPost]
         public IActionResult CreateProduct(ProductDto product)
         {
@@ -40,7 +40,6 @@ namespace RestaurantOrder.Controllers
         }
 
 
-
         [HttpGet]
         public IActionResult CreateProduct()
         {
@@ -48,11 +47,6 @@ namespace RestaurantOrder.Controllers
             return View();
         }
 
-
-
-
-
-        //Todo: вывод всех продуктов
         [HttpGet]
         public ActionResult<Product> GetAll(int id)
         {
@@ -63,16 +57,15 @@ namespace RestaurantOrder.Controllers
         }
 
         [HttpGet]
-        public ActionResult<Product> DeleteProduct()
+        public IActionResult DeleteProduct()
         {
 
             return View(_productService.GetAll());
 
         }
-        //Todo: удалить продукт
 
         [HttpPost]
-        public ActionResult<Product> DeleteProduct(int id)
+        public ActionResult <Product> DeleteProduct(int id)
         {
             try
             {
@@ -83,11 +76,8 @@ namespace RestaurantOrder.Controllers
             {
                 return BadRequest(e.Message);
             }
-
-
+            
         }
-
-        //Todo: добавить продукты к блюду
 
         public IActionResult AddProductToList(int productId, int neededDishId, int quantity)
         {
@@ -99,11 +89,17 @@ namespace RestaurantOrder.Controllers
                 Product = product,
                 ProductQuantity = quantity,
             };
-            dish.NeededProducts.Add(neededProduct);
-            _neededProductService.Create(neededProduct);
+            if (neededProduct.ProductQuantity != 0)
+            {
+                dish.NeededProducts.Add(neededProduct);
+                _neededProductService.Create(neededProduct);
 
-            _dishService.Update(dish);
-            return RedirectToAction("GetAll", new {id= neededDishId });
+                _dishService.Update(dish);
+                return RedirectToAction("GetAll", new {id = neededDishId});
+
+            }
+            return RedirectToAction("GetAll", new { id = neededDishId });
+
         }
         
         

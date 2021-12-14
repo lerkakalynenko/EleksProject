@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
-
-namespace RestaurantOrder.Domain.Core.Entities
+﻿namespace RestaurantOrder.Domain.Core.Entities
 {
      public class NeededDish
     {

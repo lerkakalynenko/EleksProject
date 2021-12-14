@@ -1,19 +1,16 @@
 ﻿@using RestaurantOrder.Domain.Core.Entities
 @model ICollection<Product>
+<link href="~/css/StylePartial.css" rel="stylesheet" type="text/css" />
 
-
-
-<form method="post" asp-controller="Product" asp-action="DeleteProduct">
-
-    <label>Index of product you want to delete</label>
-    <input name="orderId" type="number" required="" min="1" /><br />
-    <button type="submit">Delete</button>
-
-</form>
-
+ 
 
 @foreach (var product in Model)
-{
-    <p class="name">Id: @product.Id  Name: @product.Name</p>
-    <br />
+    
+{   <form method="post" asp-action="DeleteProduct">
+    <input class="hide" hidden="@product.Id">
+    <label class="name">@product.Name</label>
+    <button class="make-order" type="submit" asp-route-id="@product.Id">Delete product</button>
+    <hr>
+</form>
 }
+

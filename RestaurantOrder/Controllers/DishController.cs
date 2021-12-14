@@ -16,11 +16,13 @@ namespace RestaurantOrder.Controllers
         private readonly IMapper _mapper;
         private readonly IDishService _dishService;
         private readonly IOrderService _orderService;
-        public DishController(IDishService dishService, IMapper mapper, IOrderService orderService)
+        private readonly INeededProductService _neededProductService;
+        public DishController(IDishService dishService, IMapper mapper, IOrderService orderService, INeededProductService neededProductService)
         {
             _dishService = dishService;
             _mapper = mapper;
             _orderService = orderService;
+            _neededProductService = neededProductService;
         }
        
         [HttpPost]
@@ -72,11 +74,17 @@ namespace RestaurantOrder.Controllers
                 };
 
                 var order = _orderService.GetOrderById(orderId);
+                if (neededDish.DishQuantity != 0)
+                {
                 
-                order.NeededDishes.Add(neededDish);
-                _orderService.Update(order);
 
-                return RedirectToAction("AddedDishes", new {orderId});
+                    order.NeededDishes.Add(neededDish);
+                    _orderService.Update(order);
+                    return RedirectToAction("AddedDishes", new {orderId});
+                }
+
+                return RedirectToAction("GetAll", "Dish", new {orderId});
+
             }
             catch (Exception ex)
             {
@@ -105,6 +113,31 @@ namespace RestaurantOrder.Controllers
             _orderService.Update(order);
 
             return RedirectToAction("AddedDishes", new { orderId });
+        }
+
+        [HttpGet]
+        public IActionResult DeleteDish()
+        {
+
+            return View(_dishService.GetAll());
+
+        }
+
+        [HttpPost]
+        public ActionResult<Product> DeleteDish(int id)
+        {
+            try
+            {
+                _dishService.DeleteDish(id);
+                
+                
+                return RedirectToAction("DeleteDish", "Dish");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
     }
 }

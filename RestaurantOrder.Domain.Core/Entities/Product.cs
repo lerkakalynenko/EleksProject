@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace RestaurantOrder.Domain.Core.Entities
+﻿namespace RestaurantOrder.Domain.Core.Entities
 {
     public class Product
     {

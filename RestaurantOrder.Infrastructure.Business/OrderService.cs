@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using RestaurantOrder.Domain.Core.Entities;
 using RestaurantOrder.Domain.Interfaces;
 using RestaurantOrder.Services.Interfaces;
@@ -33,8 +29,6 @@ namespace RestaurantOrder.Infrastructure.Business
 
         public void DeleteOrder(int id)
         {
-           // var order = _repository.GetById(id);
-            
             _repository.Delete(id);
         }
 

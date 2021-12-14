@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace RestaurantOrder.Services.Contracts
 {
@@ -28,9 +27,9 @@ namespace RestaurantOrder.Services.Contracts
             }
 
             return false;
-            //return Order.NeededDishes.Select(neededDish => neededDish.Dish.Id == dishId).FirstOrDefault();
         }
 
-       
+        
+        
     }
 }

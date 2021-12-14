@@ -1,0 +1,15 @@
+﻿@using RestaurantOrder.Domain.Core.Entities
+@model IEnumerable<Dish>
+<link href="~/css/StylePartial.css" rel="stylesheet" type="text/css" />
+
+ 
+
+@foreach (var dish in Model)
+    
+{   <form method="post" asp-action="DeleteDish">
+        <input class="hide" hidden="@dish.Id">
+        <label class="name">@dish.Name</label>
+        <button class="make-order" type="submit" asp-route-id="@dish.Id">Delete dish</button>
+        <hr>
+    </form>
+}

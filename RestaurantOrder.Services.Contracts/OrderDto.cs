@@ -1,7 +1,5 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace RestaurantOrder.Services.Contracts
@@ -37,6 +35,7 @@ namespace RestaurantOrder.Services.Contracts
         public OrderDto()
         {
             NeededDishes = new List<NeededDishDto>();
+
         }
     }
 }
