@@ -10,12 +10,16 @@ namespace RestaurantOrder.Infrastructure.Data
     {
         private readonly ApplicationContext context;
         private readonly DbSet<Dish> dbSet;
+        private readonly DbSet<NeededDish> neededDishSet;
+
         public DishRepository(ApplicationContext context)
         {
             this.context = context;
             context.Database.EnsureCreated();
             dbSet = context.Set<Dish>();
+            neededDishSet = context.Set<NeededDish>();
         }
+
         public Dish Create(Dish dish)
         {
             var result = context.Add(dish);
@@ -35,8 +39,9 @@ namespace RestaurantOrder.Infrastructure.Data
         public void Delete(int id)
         {
 
-            var entity = GetById(id);
-            dbSet.Remove(entity);
+            var neededDishes = neededDishSet.ToList();
+            var entity = neededDishes.First(nDish => nDish.Dish.Id == id);
+            neededDishSet.Remove(entity);
             context.SaveChanges();
         }
 
@@ -46,6 +51,6 @@ namespace RestaurantOrder.Infrastructure.Data
             context.SaveChanges();
         }
     }
-    
-    
+
+
 }

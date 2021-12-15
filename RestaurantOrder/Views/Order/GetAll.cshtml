@@ -13,7 +13,7 @@
             @foreach (var neededDish in order.NeededDishes)
             {
                 <p class="name">Name: @neededDish.Dish.Name</p>
-                <p class="name">Price: @neededDish.Dish.Price</p>
+                <p class="name">Price:<span> @neededDish.Dish.Price</span> </p>
                 <p class="name">Quantity: @neededDish.DishQuantity</p>
                 <hr/>
             }
@@ -27,5 +27,5 @@
 
 
     </div>
-    <a class="make-order" asp-controller="Home" asp-action="Index">Return home</a>
+    <a class="make-order" asp-controller="Admin" asp-action="Index">Return to admin page</a>
 </div>

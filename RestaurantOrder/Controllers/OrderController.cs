@@ -78,5 +78,11 @@ namespace RestaurantOrder.Controllers
             }
             
         }
+
+        [HttpGet]
+        public ActionResult Complete()
+        {
+            return View();
+        }
     }
 }

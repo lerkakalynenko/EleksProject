@@ -1,0 +1,13 @@
+﻿@using RestaurantOrder.Services.Contracts;
+@model IEnumerable<OrderDto>
+
+<link href="~/css/StyleHome.css" rel="stylesheet" type="text/css" />
+<h1 style="color: #ad0aff">Thanks for your order</h1>
+<div class="container">
+<div class="dish">
+    <p class="name">Your order will be ready within 15 minutes</p><hr/>
+    <p class="name">If you have any wishes or complaints, let us know about it</p>
+    <a class="make-order" asp-controller="Home" asp-action="AboutUs">Give a feedback</a><hr/>
+</div>
+    <a class="make-order" asp-controller="Home" asp-action="Index">OK</a>
+</div>
