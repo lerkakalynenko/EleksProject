@@ -9,7 +9,7 @@ namespace RestaurantOrder.Infrastructure.Data
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<NeededProduct> NeededProducts { get; set; }
-        public DbSet<NeededDish> NeededDishes { get; set; }
+        public DbSet<NeededDish> NeededDish { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {

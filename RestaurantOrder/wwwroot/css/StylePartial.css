@@ -40,6 +40,7 @@ body {
     padding: 15px;
     background: url("images/Photo1.jpg") no-repeat center center fixed;
     background-size: cover;
+    height: 100vh;
 }
 
 

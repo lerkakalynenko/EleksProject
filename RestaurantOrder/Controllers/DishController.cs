@@ -133,9 +133,9 @@ namespace RestaurantOrder.Controllers
                 
                 return RedirectToAction("DeleteDish", "Dish");
             }
-            catch (Exception e)
+            catch 
             {
-                return BadRequest(e.Message);
+                return BadRequest("You can't to delete dish, which contains in not completed order. Wait a little and repeat attempt.");
             }
 
         }
